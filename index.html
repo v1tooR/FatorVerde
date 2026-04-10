@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fator Verde Consultoria — Licenciamento ambiental, ESG, gestão de resíduos e conformidade ambiental em Taubaté-SP e região.">
+<title>Fator Verde Consultoria | Licenciamento Ambiental e ESG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN SYSTEM — TOKENS
+   ============================================================ */
+:root {
+  --verde-profundo:    #1F6B4F;
+  --verde-sec:         #2E8B68;
+  --verde-claro:       #EAF5EF;
+  --verde-borda:       rgba(31,107,79,0.14);
+  --grafite:           #1E2421;
+  --grafite-suave:     #252E2A;
+  --off-white:         #F8FAF8;
+  --cinza:             #6B7280;
+  --cinza-leve:        #E5E9E6;
+  --dourado:           #C59A3D;
+  --dourado-claro:     rgba(197,154,61,0.12);
+  --alerta:            #B33D2A;
+  --alerta-claro:      rgba(179,61,42,0.08);
+
+  --fonte-titulo:      'Sora', sans-serif;
+  --fonte-corpo:       'Inter', sans-serif;
+
+  --raio:              10px;
+  --raio-lg:           18px;
+  --raio-xl:           28px;
+
+  --sombra-sm:         0 2px 12px rgba(0,0,0,0.06);
+  --sombra-md:         0 6px 32px rgba(0,0,0,0.09);
+  --sombra-lg:         0 16px 64px rgba(0,0,0,0.13);
+  --sombra-verde:      0 8px 32px rgba(31,107,79,0.18);
+
+  --max-w:             1200px;
+  --gap:               clamp(40px, 6vw, 80px);
+  --sec-pad:           clamp(64px, 8vw, 112px);
+
+  --ease-out:          cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:       cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--fonte-corpo);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--grafite);
+  background: var(--off-white);
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+/* ============================================================
+   TYPOGRAPHY SCALE
+   ============================================================ */
+.t-display {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+.t-h2 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+.t-h3 {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+.t-label {
+  font-family: var(--fonte-titulo);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.t-body { font-size: clamp(0.95rem, 1.5vw, 1.05rem); line-height: 1.7; }
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+.section { padding: var(--sec-pad) 0; }
+.section--dark { background: var(--grafite); color: var(--off-white); }
+.section--green { background: var(--verde-profundo); color: var(--off-white); }
+.section--tinted { background: var(--verde-claro); }
+.section--white { background: #fff; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap); }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--fonte-titulo);
+  font-size: 0.92rem; font-weight: 600;
+  padding: 14px 28px; border-radius: 8px;
+  transition: all 0.3s var(--ease-out);
+  position: relative; overflow: hidden;
+  letter-spacing: 0.01em;
+}
+.btn::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,0.1);
+  opacity: 0; transition: opacity 0.3s;
+}
+.btn:hover::after { opacity: 1; }
+.btn-primary {
+  background: var(--verde-profundo); color: #fff;
+  box-shadow: 0 4px 20px rgba(31,107,79,0.3);
+}
+.btn-primary:hover { background: var(--verde-sec); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(31,107,79,0.4); }
+.btn-gold {
+  background: var(--dourado); color: #fff;
+  box-shadow: 0 4px 20px rgba(197,154,61,0.3);
+}
+.btn-gold:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.btn-outline {
+  border: 1.5px solid var(--verde-profundo); color: var(--verde-profundo);
+}
+.btn-outline:hover { background: var(--verde-profundo); color: #fff; transform: translateY(-2px); }
+.btn-outline-white {
+  border: 1.5px solid rgba(255,255,255,0.5); color: #fff;
+}
+.btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+.btn-lg { padding: 18px 36px; font-size: 1rem; border-radius: 10px; }
+.btn-icon { width: 18px; height: 18px; transition: transform 0.3s var(--ease-out); }
+.btn:hover .btn-icon { transform: translateX(3px); }
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.sec-header { text-align: center; max-width: 680px; margin: 0 auto var(--gap); }
+.sec-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--verde-claro); color: var(--verde-profundo);
+  padding: 5px 14px; border-radius: 100px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.sec-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--verde-profundo); }
+.sec-tag--gold { background: var(--dourado-claro); color: var(--dourado); }
+.sec-tag--gold .dot { background: var(--dourado); }
+.sec-tag--white { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); }
+.sec-tag--white .dot { background: rgba(255,255,255,0.7); }
+
+/* ============================================================
+   TRUST SEAL
+   ============================================================ */
+.trust-seals {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  margin-top: 28px;
+}
+.seal {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.7);
+}
+.seal svg { width: 16px; height: 16px; opacity: 0.8; }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+#header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  transition: all 0.4s var(--ease-out);
+  padding: 20px 0;
+}
+#header.scrolled {
+  background: rgba(30,36,33,0.97);
+  backdrop-filter: blur(16px);
+  padding: 14px 0;
+  box-shadow: 0 2px 32px rgba(0,0,0,0.2);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; }
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--fonte-titulo); font-weight: 700; font-size: 1.15rem;
+  color: #fff; letter-spacing: -0.02em;
+}
+.logo-mark {
+  width: 38px; height: 38px; border-radius: 9px;
+  background: linear-gradient(135deg, var(--verde-profundo), var(--verde-sec));
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.logo-mark svg { width: 22px; height: 22px; }
+.logo span { color: var(--dourado); }
+nav { display: flex; align-items: center; gap: 8px; }
+.nav-link {
+  font-size: 0.87rem; font-weight: 500; color: rgba(255,255,255,0.75);
+  padding: 8px 14px; border-radius: 6px;
+  transition: all 0.25s;
+}
+.nav-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.nav-cta { margin-left: 8px; }
+.menu-toggle {
+  display: none; flex-direction: column; gap: 5px;
+  width: 28px; cursor: pointer;
+}
+.menu-toggle span {
+  display: block; height: 2px; background: #fff; border-radius: 2px;
+  transition: all 0.3s var(--ease-out);
+}
+.mobile-nav {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--grafite); z-index: 99; flex-direction: column;
+  align-items: center; justify-content: center; gap: 12px;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav .nav-link { font-size: 1.2rem; padding: 12px 24px; color: rgba(255,255,255,0.85); }
+.mobile-nav-close {
+  position: absolute; top: 24px; right: 24px;
+  font-size: 1.5rem; color: rgba(255,255,255,0.6); background: none; border: none;
+  cursor: pointer;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  min-height: 100svh;
+  background: var(--grafite);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.hero-bg-pattern {
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    radial-gradient(circle at 70% 50%, rgba(31,107,79,0.18) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(46,139,104,0.12) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px);
+}
+.hero-accent-line {
+  position: absolute; top: 0; left: 48%; width: 1px; height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(31,107,79,0.3) 30%, rgba(31,107,79,0.3) 70%, transparent);
+  z-index: 0;
+}
+.hero-inner {
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 60px;
+  position: relative; z-index: 1;
+  padding-top: 100px;
+}
+.hero-content {}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 24px;
+  background: rgba(31,107,79,0.2);
+  border: 1px solid rgba(31,107,79,0.35);
+  padding: 5px 14px 5px 8px;
+  border-radius: 100px;
+}
+.hero-eyebrow-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #4ADE80;
+  box-shadow: 0 0 8px rgba(74,222,128,0.6);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 6px rgba(74,222,128,0.5); }
+  50% { box-shadow: 0 0 14px rgba(74,222,128,0.9); }
+}
+.hero-eyebrow span { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.8); letter-spacing: 0.05em; }
+.hero-title {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(2rem, 4.2vw, 3.5rem);
+  font-weight: 800; line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #fff; margin-bottom: 20px;
+}
+.hero-title .accent { color: var(--dourado); }
+.hero-subtitle {
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.65; max-width: 500px;
+  margin-bottom: 12px;
+}
+.hero-location {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; color: rgba(255,255,255,0.45);
+  margin-bottom: 32px;
+}
+.hero-location svg { width: 14px; height: 14px; }
+.hero-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.hero-visual {
+  position: relative; height: 580px;
+}
+.hero-visual-frame {
+  position: absolute; inset: 0;
+  border-radius: var(--raio-xl);
+  overflow: hidden;
+  background: linear-gradient(145deg, #163D2C 0%, #0D2318 40%, #1A3A2A 100%);
+  border: 1px solid rgba(31,107,79,0.25);
+}
+.hero-visual-grid {
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(46,139,104,0.08) 40px, rgba(46,139,104,0.08) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(46,139,104,0.08) 40px, rgba(46,139,104,0.08) 41px);
+}
+.hero-visual-glow {
+  position: absolute; top: -60px; left: -60px; right: -60px; bottom: -60px;
+  background: radial-gradient(circle at 60% 40%, rgba(31,107,79,0.22) 0%, transparent 65%);
+}
+/* topographic lines (decorative) */
+.hero-topo {
+  position: absolute; inset: 0; overflow: hidden; opacity: 0.25;
+}
+.hero-topo svg { width: 100%; height: 100%; }
+/* floating compliance cards */
+.float-cards {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.float-card {
+  position: absolute;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--raio);
+  padding: 14px 18px;
+  display: flex; align-items: center; gap: 10px;
+  pointer-events: none;
+  animation: float-gentle 5s ease-in-out infinite;
+}
+.float-card:nth-child(2) { animation-delay: -2s; animation-duration: 6s; }
+.float-card:nth-child(3) { animation-delay: -1s; animation-duration: 5.5s; }
+.float-card:nth-child(4) { animation-delay: -3s; animation-duration: 7s; }
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+.float-card-1 { top: 14%; left: -5%; }
+.float-card-2 { top: 42%; right: -2%; }
+.float-card-3 { bottom: 22%; left: 6%; }
+.float-card-4 { top: 8%; right: 10%; }
+.fc-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.fc-icon--green { background: rgba(31,107,79,0.3); }
+.fc-icon--gold  { background: rgba(197,154,61,0.3); }
+.fc-icon--blue  { background: rgba(59,130,246,0.25); }
+.fc-icon svg { width: 18px; height: 18px; }
+.fc-content {}
+.fc-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5); line-height: 1; margin-bottom: 3px; }
+.fc-value { font-family: var(--fonte-titulo); font-size: 0.88rem; font-weight: 700; color: #fff; }
+.fc-sub { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.fc-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em;
+  padding: 3px 9px; border-radius: 100px;
+}
+.fc-badge--green { background: rgba(74,222,128,0.18); color: #4ADE80; }
+.fc-badge--amber { background: rgba(251,191,36,0.18); color: #FBbf24; }
+
+/* visual center element */
+.hero-visual-center {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 180px; height: 180px;
+}
+.hero-visual-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1px solid rgba(31,107,79,0.3);
+  animation: ring-expand 3s ease-in-out infinite;
+}
+.hero-visual-ring:nth-child(2) { inset: 20px; animation-delay: -1s; animation-duration: 3.5s; border-color: rgba(46,139,104,0.2); }
+.hero-visual-ring:nth-child(3) { inset: 40px; animation-delay: -2s; animation-duration: 4s; border-color: rgba(197,154,61,0.25); }
+@keyframes ring-expand {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+.hero-visual-core {
+  position: absolute; inset: 60px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(31,107,79,0.5) 0%, rgba(31,107,79,0.15) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.hero-visual-core svg { width: 36px; height: 36px; }
+.hero-img-note {
+  position: absolute; bottom: 20px; right: 20px;
+  font-size: 0.68rem; color: rgba(255,255,255,0.28); font-style: italic;
+}
+
+/* ============================================================
+   PAIN POINTS
+   ============================================================ */
+#dores {
+  background: #fff;
+  border-top: 1px solid var(--cinza-leve);
+}
+.dores-header { max-width: 600px; margin: 0 auto var(--gap); text-align: center; }
+.dores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+.dor-card {
+  background: var(--off-white);
+  border: 1.5px solid transparent;
+  border-radius: var(--raio-lg);
+  padding: 24px 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: all 0.3s var(--ease-out);
+  cursor: default;
+}
+.dor-card:hover {
+  border-color: var(--alerta);
+  background: var(--alerta-claro);
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-md);
+}
+.dor-card:hover .dor-icon { background: var(--alerta); }
+.dor-icon {
+  width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
+  background: rgba(179,61,42,0.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s;
+}
+.dor-icon svg { width: 20px; height: 20px; }
+.dor-text { font-size: 0.9rem; font-weight: 500; color: #374151; line-height: 1.45; }
+.dores-cta {
+  text-align: center;
+  background: var(--grafite);
+  border-radius: var(--raio-xl);
+  padding: 28px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  flex-wrap: wrap;
+}
+.dores-cta-text { font-size: 1rem; font-weight: 600; color: #fff; }
+.dores-cta-sub { font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+/* ============================================================
+   SOLUTIONS
+   ============================================================ */
+#solucoes { background: var(--off-white); }
+.sol-categories { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sol-cat {
+  background: #fff; border-radius: var(--raio-xl);
+  padding: 32px 28px;
+  border: 1.5px solid var(--cinza-leve);
+  transition: all 0.35s var(--ease-out);
+}
+.sol-cat:hover { border-color: var(--verde-profundo); box-shadow: var(--sombra-verde); transform: translateY(-4px); }
+.sol-cat-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
+.sol-cat-icon {
+  width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.sol-cat-icon--1 { background: var(--verde-claro); }
+.sol-cat-icon--2 { background: rgba(197,154,61,0.12); }
+.sol-cat-icon--3 { background: rgba(59,130,246,0.08); }
+.sol-cat-icon svg { width: 24px; height: 24px; }
+.sol-cat-num {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--cinza); margin-bottom: 4px;
+}
+.sol-cat-title {
+  font-family: var(--fonte-titulo); font-size: 1.05rem; font-weight: 700;
+  color: var(--grafite); line-height: 1.25;
+}
+.sol-items { display: flex; flex-direction: column; gap: 0; }
+.sol-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cinza-leve);
+  font-size: 0.88rem; color: #4B5563;
+  transition: color 0.2s;
+}
+.sol-item:last-child { border-bottom: none; padding-bottom: 0; }
+.sol-item:hover { color: var(--verde-profundo); }
+.sol-item-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--verde-sec); flex-shrink: 0; margin-top: 7px;
+}
+.sol-item strong { color: var(--grafite); font-weight: 600; }
+
+/* ============================================================
+   COMO FUNCIONA — TIMELINE
+   ============================================================ */
+#como-funciona { background: var(--grafite); }
+#como-funciona .sec-tag { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
+#como-funciona .t-h2 { color: #fff; }
+#como-funciona .sec-header p { color: rgba(255,255,255,0.55); }
+.timeline {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0; position: relative; margin-top: 56px;
+}
+.timeline::before {
+  content: ''; position: absolute;
+  top: 42px; left: calc(16.66% + 24px); right: calc(16.66% + 24px); height: 1px;
+  background: linear-gradient(to right, rgba(31,107,79,0.5), rgba(46,139,104,0.8), rgba(31,107,79,0.5));
+}
+.timeline-step { text-align: center; padding: 0 28px; position: relative; }
+.timeline-num-wrap {
+  display: flex; align-items: center; justify-content: center;
+  position: relative; margin-bottom: 28px;
+}
+.timeline-num {
+  width: 64px; height: 64px; border-radius: 50%; position: relative; z-index: 1;
+  background: linear-gradient(135deg, var(--verde-profundo), var(--verde-sec));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fonte-titulo); font-size: 1.4rem; font-weight: 800; color: #fff;
+  box-shadow: 0 0 0 8px rgba(31,107,79,0.15);
+}
+.timeline-num-ring {
+  position: absolute; inset: -6px; border-radius: 50%;
+  border: 1.5px dashed rgba(46,139,104,0.4);
+  animation: spin-slow 20s linear infinite;
+}
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+.timeline-step-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--verde-sec); margin-bottom: 8px;
+}
+.timeline-step-title {
+  font-family: var(--fonte-titulo); font-size: 1.2rem; font-weight: 700;
+  color: #fff; margin-bottom: 12px;
+}
+.timeline-step-desc { font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+/* ============================================================
+   QUEM SOMOS
+   ============================================================ */
+#quem-somos { background: #fff; }
+.about-grid { display: grid; grid-template-columns: 1fr 420px; gap: 72px; align-items: start; }
+.about-text-block { }
+.about-kicker {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--verde-profundo); margin-bottom: 12px;
+}
+.about-desc {
+  font-size: 0.98rem; color: #4B5563; line-height: 1.75;
+  margin-bottom: 20px;
+}
+.about-coverage {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--verde-claro); border-radius: var(--raio);
+  padding: 16px 18px; border-left: 3px solid var(--verde-profundo);
+  margin-top: 28px;
+}
+.about-coverage svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: var(--verde-profundo); }
+.about-coverage p { font-size: 0.88rem; color: #374151; line-height: 1.55; }
+/* specialist card */
+.specialist-card {
+  background: var(--off-white);
+  border-radius: var(--raio-xl);
+  overflow: hidden;
+  border: 1.5px solid var(--cinza-leve);
+  box-shadow: var(--sombra-md);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s;
+}
+.specialist-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-verde); }
+.specialist-photo {
+  width: 100%; height: 220px;
+  background: linear-gradient(135deg, var(--verde-profundo) 0%, var(--grafite) 100%);
+  position: relative; overflow: hidden; display: flex; align-items: flex-end;
+}
+.specialist-photo-bg {
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 21px);
+}
+.specialist-photo-avatar {
+  position: relative; z-index: 1; width: 100%; padding: 24px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.avatar-initials {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fonte-titulo); font-size: 1.5rem; font-weight: 700; color: #fff;
+}
+.specialist-yrs {
+  background: var(--dourado); color: #fff;
+  border-radius: 8px; padding: 8px 14px; text-align: center;
+}
+.specialist-yrs .num { font-family: var(--fonte-titulo); font-size: 1.6rem; font-weight: 800; line-height: 1; }
+.specialist-yrs .lbl { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.9; }
+.specialist-body { padding: 24px 24px 28px; }
+.specialist-name {
+  font-family: var(--fonte-titulo); font-size: 1.1rem; font-weight: 700;
+  color: var(--grafite); margin-bottom: 4px;
+}
+.specialist-role { font-size: 0.82rem; color: var(--cinza); margin-bottom: 18px; }
+.specialist-creds { display: flex; flex-direction: column; gap: 10px; }
+.cred {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 0.82rem; color: #374151; line-height: 1.4;
+}
+.cred-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--verde-sec); flex-shrink: 0; margin-top: 6px;
+}
+
+/* ============================================================
+   CASES
+   ============================================================ */
+#cases { background: var(--grafite); }
+#cases .t-h2 { color: #fff; }
+.cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+.case-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: var(--raio-lg); padding: 28px 24px;
+  transition: all 0.3s var(--ease-out);
+  position: relative; overflow: hidden;
+}
+.case-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--verde-profundo), var(--verde-sec));
+  opacity: 0; transition: opacity 0.3s;
+}
+.case-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
+.case-card:hover::before { opacity: 1; }
+.case-sector {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--verde-sec); margin-bottom: 12px;
+}
+.case-result {
+  font-family: var(--fonte-titulo); font-size: 0.96rem; font-weight: 700;
+  color: #fff; line-height: 1.45; margin-bottom: 12px;
+}
+.case-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(31,107,79,0.2); border: 1px solid rgba(31,107,79,0.3);
+  color: #4ADE80; border-radius: 100px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; padding: 3px 10px;
+}
+.testimonial-block {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--raio-xl); padding: 36px 40px;
+  display: flex; align-items: flex-start; gap: 24px;
+  position: relative;
+}
+.testimonial-quote-mark {
+  font-family: var(--fonte-titulo); font-size: 5rem; line-height: 1;
+  color: var(--verde-sec); opacity: 0.3; flex-shrink: 0; margin-top: -10px;
+}
+.testimonial-text {
+  font-size: 1.08rem; font-weight: 500; color: rgba(255,255,255,0.9);
+  font-style: italic; line-height: 1.65; margin-bottom: 16px;
+}
+.testimonial-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.testimonial-dot {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(31,107,79,0.25); border: 1.5px solid rgba(31,107,79,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--fonte-titulo); font-size: 0.9rem; font-weight: 700; color: var(--verde-sec);
+}
+.testimonial-name { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.7); }
+.testimonial-sector { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+.cases-disclaimer {
+  text-align: center; margin-top: 20px;
+  font-size: 0.78rem; color: rgba(255,255,255,0.3); font-style: italic;
+}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+#faq { background: var(--off-white); }
+.faq-wrap { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border: 1.5px solid var(--cinza-leve); border-radius: var(--raio-lg);
+  margin-bottom: 12px; overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: #fff;
+}
+.faq-item.open { border-color: var(--verde-profundo); box-shadow: var(--sombra-verde); }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 24px; cursor: pointer;
+  font-family: var(--fonte-titulo); font-size: 0.97rem; font-weight: 600;
+  color: var(--grafite); transition: color 0.25s;
+  user-select: none;
+}
+.faq-item.open .faq-q { color: var(--verde-profundo); }
+.faq-icon {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  background: var(--verde-claro);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.35s var(--ease-out), background 0.25s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--verde-profundo); }
+.faq-icon svg { width: 14px; height: 14px; transition: stroke 0.25s; stroke: var(--verde-profundo); }
+.faq-item.open .faq-icon svg { stroke: #fff; }
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.45s var(--ease-out), padding 0.35s;
+}
+.faq-item.open .faq-a { max-height: 200px; }
+.faq-a-inner {
+  padding: 0 24px 20px;
+  font-size: 0.92rem; color: #4B5563; line-height: 1.7;
+  border-top: 1px solid var(--cinza-leve);
+  padding-top: 16px;
+}
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+#cta-final {
+  background: linear-gradient(135deg, var(--grafite) 0%, #0D1F16 100%);
+  position: relative; overflow: hidden;
+}
+#cta-final::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 50%, rgba(31,107,79,0.25) 0%, transparent 70%);
+}
+#cta-final::after {
+  content: ''; position: absolute;
+  bottom: -80px; right: -80px; width: 400px; height: 400px;
+  border-radius: 50%; background: rgba(31,107,79,0.08);
+  border: 1px solid rgba(31,107,79,0.15);
+}
+.cta-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center;
+}
+.cta-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--dourado-claro); border: 1px solid rgba(197,154,61,0.3);
+  color: var(--dourado); padding: 5px 14px; border-radius: 100px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.cta-title {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
+  color: #fff; margin-bottom: 16px;
+}
+.cta-desc { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 8px; }
+.cta-location {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; color: rgba(255,255,255,0.4);
+}
+.cta-location svg { width: 14px; height: 14px; }
+.cta-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+.cta-trust { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+#footer {
+  background: #0D1410;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 52px 0 32px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 40px; margin-bottom: 48px;
+}
+.footer-brand {}
+.footer-logo { margin-bottom: 14px; }
+.footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.55; max-width: 240px; margin-bottom: 20px; }
+.footer-social { display: flex; gap: 10px; }
+.social-link {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s;
+}
+.social-link:hover { background: var(--verde-profundo); border-color: var(--verde-profundo); transform: translateY(-2px); }
+.social-link svg { width: 16px; height: 16px; }
+.footer-col-title {
+  font-family: var(--fonte-titulo); font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5); margin-bottom: 16px;
+}
+.footer-links { display: flex; flex-direction: column; gap: 9px; }
+.footer-link { font-size: 0.85rem; color: rgba(255,255,255,0.45); transition: color 0.25s; }
+.footer-link:hover { color: rgba(255,255,255,0.85); }
+.footer-contact-item {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-bottom: 10px; line-height: 1.45;
+}
+.footer-contact-item svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; opacity: 0.6; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 24px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+}
+.footer-legal { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+.footer-legal a { color: rgba(255,255,255,0.4); text-decoration: underline; }
+.footer-cnpj { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+
+/* ============================================================
+   WHATSAPP BUTTON
+   ============================================================ */
+.whatsapp-fab {
+  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  display: flex; align-items: center; gap: 0;
+  transition: all 0.35s var(--ease-out);
+}
+.whatsapp-bubble {
+  background: rgba(30,36,33,0.9); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px; padding: 10px 18px 10px 14px;
+  font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.9);
+  max-width: 0; overflow: hidden; white-space: nowrap;
+  opacity: 0; transition: all 0.4s var(--ease-out);
+  transform: translateX(8px);
+}
+.whatsapp-fab:hover .whatsapp-bubble {
+  max-width: 240px; opacity: 1; transform: translateX(0);
+}
+.whatsapp-btn {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.4), 0 2px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s var(--ease-out); flex-shrink: 0;
+  position: relative;
+}
+.whatsapp-btn::before {
+  content: ''; position: absolute; inset: -4px; border-radius: 50%;
+  border: 2px solid rgba(37,211,102,0.3);
+  animation: wa-ring 2s ease-in-out infinite;
+}
+@keyframes wa-ring {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 0; }
+}
+.whatsapp-fab:hover .whatsapp-btn { transform: scale(1.08); box-shadow: 0 10px 36px rgba(37,211,102,0.5); }
+.whatsapp-btn svg { width: 30px; height: 30px; }
+
+/* sticky mobile CTA */
+.sticky-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
+  background: var(--grafite);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 20px;
+}
+.sticky-cta .btn { width: 100%; justify-content: center; }
+
+/* ============================================================
+   ANIMATION SYSTEM
+   ============================================================ */
+[data-anim] {
+  opacity: 0;
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out), filter 0.7s var(--ease-out);
+}
+[data-anim="fade-up"]   { transform: translateY(32px); }
+[data-anim="fade-down"] { transform: translateY(-24px); }
+[data-anim="fade-left"] { transform: translateX(32px); }
+[data-anim="fade-right"]{ transform: translateX(-32px); }
+[data-anim="scale-up"]  { transform: scale(0.94); }
+[data-anim="blur-in"]   { filter: blur(6px); transform: translateY(16px); }
+[data-anim].is-visible {
+  opacity: 1; transform: none; filter: none;
+}
+/* stagger delays */
+[data-delay="1"] { transition-delay: 0.1s; }
+[data-delay="2"] { transition-delay: 0.2s; }
+[data-delay="3"] { transition-delay: 0.3s; }
+[data-delay="4"] { transition-delay: 0.4s; }
+[data-delay="5"] { transition-delay: 0.5s; }
+[data-delay="6"] { transition-delay: 0.6s; }
+
+/* hero specific (triggered immediately) */
+.hero-anim-1 { animation: hero-fade-up 0.9s var(--ease-out) 0.15s both; }
+.hero-anim-2 { animation: hero-fade-up 0.9s var(--ease-out) 0.3s both; }
+.hero-anim-3 { animation: hero-fade-up 0.9s var(--ease-out) 0.45s both; }
+.hero-anim-4 { animation: hero-fade-up 0.9s var(--ease-out) 0.6s both; }
+.hero-anim-5 { animation: hero-fade-up 0.9s var(--ease-out) 0.75s both; }
+.hero-visual-anim { animation: hero-visual-in 1.1s var(--ease-out) 0.4s both; }
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-visual-in {
+  from { opacity: 0; transform: translateX(32px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-grid .specialist-card { max-width: 420px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .cta-inner { grid-template-columns: 1fr; }
+  .cta-actions { align-items: flex-start; }
+}
+@media (max-width: 900px) {
+  .dores-grid { grid-template-columns: 1fr 1fr; }
+  .sol-categories { grid-template-columns: 1fr; }
+  .cases-grid { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: 1fr; gap: 32px; }
+  .timeline::before { display: none; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { height: 320px; }
+  .float-card-1 { top: 8%; left: 4%; }
+  .float-card-2 { top: 40%; right: 4%; }
+  .float-card-3 { display: none; }
+  .float-card-4 { display: none; }
+  nav { display: none; }
+  .menu-toggle { display: flex; }
+  .sticky-cta { display: block; }
+  body { padding-bottom: 72px; }
+}
+@media (max-width: 600px) {
+  .dores-grid { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .dores-cta { flex-direction: column; text-align: center; }
+  .testimonial-block { flex-direction: column; gap: 12px; }
+  .testimonial-quote-mark { font-size: 3rem; }
+  .hero-inner { padding-top: 80px; }
+  .trust-seals { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#hero" class="logo">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-opacity="0.4"/>
+            <path d="M7 17c1-3 4-5 7-4s3 5 2 7" stroke="#fff"/>
+            <path d="M12 12c-1-2 1-5 4-5" stroke-opacity="0.7"/>
+          </svg>
+        </div>
+        Fator <span>Verde</span>
+      </a>
+      <nav>
+        <a href="#dores" class="nav-link">Desafios</a>
+        <a href="#solucoes" class="nav-link">Soluções</a>
+        <a href="#como-funciona" class="nav-link">Processo</a>
+        <a href="#quem-somos" class="nav-link">Quem Somos</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="btn btn-primary nav-cta" target="_blank" rel="noopener">
+          Falar com especialista
+        </a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Fechar">✕</button>
+  <a href="#dores" class="nav-link" data-mobile-link>Desafios</a>
+  <a href="#solucoes" class="nav-link" data-mobile-link>Soluções</a>
+  <a href="#como-funciona" class="nav-link" data-mobile-link>Processo</a>
+  <a href="#quem-somos" class="nav-link" data-mobile-link>Quem Somos</a>
+  <a href="#faq" class="nav-link" data-mobile-link>FAQ</a>
+  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="btn btn-primary" target="_blank" rel="noopener" style="margin-top:16px;">
+    Falar com especialista
+  </a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-accent-line"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <!-- Content -->
+      <div class="hero-content">
+        <div class="hero-eyebrow hero-anim-1">
+          <div class="hero-eyebrow-dot"></div>
+          <span>Consultoria Ambiental Especializada</span>
+        </div>
+        <h1 class="hero-title hero-anim-2">
+          Evite multas e embargos:<br>
+          regularize sua empresa com quem <span class="accent">domina</span> o processo.
+        </h1>
+        <p class="hero-subtitle hero-anim-3">
+          Licenciamento ambiental, planos obrigatórios e consultoria ESG com acompanhamento técnico do início ao fim — sem burocracia perdida e sem risco à operação.
+        </p>
+        <div class="hero-location hero-anim-3" style="transition-delay:0.38s;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          Atendimento em Taubaté-SP e região
+        </div>
+        <div class="hero-actions hero-anim-4">
+          <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+um+diagn%C3%B3stico+ambiental." class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+            Entrar em contato
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#solucoes" class="btn btn-outline-white btn-lg">
+            Ver soluções
+          </a>
+        </div>
+        <div class="trust-seals hero-anim-5">
+          <div class="seal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            +17 anos de experiência
+          </div>
+          <div class="seal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            CETESB · IBAMA · DAEE
+          </div>
+          <div class="seal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Auditoria e Perícia Ambiental
+          </div>
+        </div>
+      </div>
+      <!-- Visual -->
+      <div class="hero-visual hero-visual-anim">
+        <div class="hero-visual-frame">
+          <div class="hero-visual-grid"></div>
+          <div class="hero-visual-glow"></div>
+          <svg class="hero-topo" viewBox="0 0 500 580" preserveAspectRatio="xMidYMid slice">
+            <g stroke="#2E8B68" fill="none" stroke-width="0.8">
+              <ellipse cx="250" cy="290" rx="200" ry="140"/>
+              <ellipse cx="250" cy="290" rx="165" ry="110"/>
+              <ellipse cx="250" cy="290" rx="130" ry="82"/>
+              <ellipse cx="250" cy="290" rx="96" ry="57"/>
+              <ellipse cx="250" cy="290" rx="62" ry="35"/>
+              <ellipse cx="160" cy="180" rx="90" ry="65" transform="rotate(-20 160 180)"/>
+              <ellipse cx="160" cy="180" rx="66" ry="48" transform="rotate(-20 160 180)"/>
+              <ellipse cx="160" cy="180" rx="44" ry="32" transform="rotate(-20 160 180)"/>
+              <ellipse cx="370" cy="400" rx="80" ry="55" transform="rotate(15 370 400)"/>
+              <ellipse cx="370" cy="400" rx="55" ry="38" transform="rotate(15 370 400)"/>
+            </g>
+          </svg>
+          <div class="hero-visual-center">
+            <div class="hero-visual-ring"></div>
+            <div class="hero-visual-ring"></div>
+            <div class="hero-visual-ring"></div>
+            <div class="hero-visual-core">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-opacity="0.5"/>
+                <path d="M7 17c1-3 4-5 7-4s3 5 2 7"/>
+                <path d="M12 10c0-2 2-4 4-3"/>
+              </svg>
+            </div>
+          </div>
+          <div class="float-cards">
+            <!-- Card 1 -->
+            <div class="float-card float-card-1">
+              <div class="fc-icon fc-icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="fc-content">
+                <div class="fc-label">Status</div>
+                <div class="fc-value">Licença Operação</div>
+                <div class="fc-sub"><span class="fc-badge fc-badge--green">● Ativa</span></div>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="float-card float-card-2">
+              <div class="fc-icon fc-icon--gold">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#FBbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              </div>
+              <div class="fc-content">
+                <div class="fc-label">ESG Score</div>
+                <div class="fc-value">Conformidade</div>
+                <div class="fc-sub"><span class="fc-badge fc-badge--amber">▲ 94 pontos</span></div>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="float-card float-card-3">
+              <div class="fc-icon fc-icon--blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div class="fc-content">
+                <div class="fc-label">PGRS</div>
+                <div class="fc-value">Plano Atualizado</div>
+                <div class="fc-sub"><span class="fc-badge fc-badge--green">● Válido 2025</span></div>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="float-card float-card-4">
+              <div class="fc-icon fc-icon--green">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <div class="fc-content">
+                <div class="fc-label">GEE</div>
+                <div class="fc-value">Inventário OK</div>
+                <div class="fc-sub"><span class="fc-badge fc-badge--green">● Auditado</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-img-note">Substitua pelo visual da empresa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DORES
+     ============================================================ -->
+<section id="dores" class="section section--white">
+  <div class="container">
+    <div class="dores-header" data-anim="fade-up">
+      <div class="sec-tag"><span class="dot"></span> Diagnóstico</div>
+      <h2 class="t-h2" style="margin-bottom:14px;">Sua empresa está enfrentando algum desses problemas?</h2>
+      <p class="t-body" style="color:#6B7280;">Identifique abaixo os riscos que podem estar comprometendo sua operação — e descubra como resolvê-los.</p>
+    </div>
+    <div class="dores-grid">
+      <div class="dor-card" data-anim="fade-up" data-delay="1">
+        <div class="dor-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B33D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <div class="dor-text">Processo de licenciamento parado ou devolvido pelo órgão ambiental</div>
+      </div>
+      <div class="dor-card" data-anim="fade-up" data-delay="2">
+        <div class="dor-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B33D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="dor-text">Risco de multa, embargo ou interdição por irregularidades ambientais</div>
+      </div>
+      <div class="dor-card" data-anim="fade-up" data-delay="3">
+        <div class="dor-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B33D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="dor-text">Prazos de órgãos (CETESB, IBAMA, DAEE) apertados e de alta complexidade</div>
+      </div>
+      <div class="dor-card" data-anim="fade-up" data-delay="4">
+        <div class="dor-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B33D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="dor-text">Obra ou empreendimento atrasado por ausência de documentação ambiental</div>
+      </div>
+      <div class="dor-card" data-anim="fade-up" data-delay="5">
+        <div class="dor-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B33D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="dor-text">Planos obrigatórios (PGRS, PGRCC, PGRSS) desatualizados ou inexistentes</div>
+      </div>
+      <div class="dor-card" data-anim="fade-up" data-delay="6">
+        <div class="dor-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B33D2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <div class="dor-text">Pressão de stakeholders para implementar ESG e reduzir pegada de carbono</div>
+      </div>
+    </div>
+    <div class="dores-cta" data-anim="fade-up">
+      <div>
+        <div class="dores-cta-text">Se você identificou ao menos um desses pontos, é hora de agir.</div>
+        <div class="dores-cta-sub">Diagnóstico inicial sem compromisso. Saiba exatamente o que precisa ser feito.</div>
+      </div>
+      <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+um+diagn%C3%B3stico+ambiental." class="btn btn-primary" target="_blank" rel="noopener">
+        Quero um diagnóstico
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOLUÇÕES
+     ============================================================ -->
+<section id="solucoes" class="section">
+  <div class="container">
+    <div class="sec-header" data-anim="fade-up">
+      <div class="sec-tag"><span class="dot"></span> Serviços</div>
+      <h2 class="t-h2">Como a Fator Verde resolve cada desafio</h2>
+      <p class="t-body" style="color:#6B7280;margin-top:12px;">Soluções organizadas por área de atuação, com foco em resultado, conformidade e eficiência operacional.</p>
+    </div>
+    <div class="sol-categories">
+      <!-- Categoria 1 -->
+      <div class="sol-cat" data-anim="fade-up" data-delay="1">
+        <div class="sol-cat-header">
+          <div class="sol-cat-icon sol-cat-icon--1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1F6B4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="sol-cat-num">01 — Ambiental</div>
+            <div class="sol-cat-title">Licenciamento e Estudos de Impacto</div>
+          </div>
+        </div>
+        <ul class="sol-items">
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>LP, LI e LO</strong> — acompanhamento completo até a concessão da licença</div></li>
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>EIA-RIMA</strong> — estudos para grandes obras e empreendimentos</div></li>
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>Supressão de Vegetação</strong> — autorizações para setores agrícola e imobiliário</div></li>
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>Conformidade Ambiental</strong> — assessoria técnica para evitar penalidades</div></li>
+        </ul>
+      </div>
+      <!-- Categoria 2 -->
+      <div class="sol-cat" data-anim="fade-up" data-delay="2">
+        <div class="sol-cat-header">
+          <div class="sol-cat-icon sol-cat-icon--2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#C59A3D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div>
+            <div class="sol-cat-num">02 — ESG</div>
+            <div class="sol-cat-title">Sustentabilidade e Baixo Carbono</div>
+          </div>
+        </div>
+        <ul class="sol-items">
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>Consultoria ESG</strong> — critérios ambientais, sociais e de governança</div></li>
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>Inventário de GEE</strong> — mapeamento de emissões e planos de redução</div></li>
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>Créditos de Carbono</strong> — projetos de restauração e inserção no mercado</div></li>
+        </ul>
+      </div>
+      <!-- Categoria 3 -->
+      <div class="sol-cat" data-anim="fade-up" data-delay="3">
+        <div class="sol-cat-header">
+          <div class="sol-cat-icon sol-cat-icon--3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <div class="sol-cat-num">03 — Recursos</div>
+            <div class="sol-cat-title">Gestão de Recursos e Resíduos</div>
+          </div>
+        </div>
+        <ul class="sol-items">
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>PGRS</strong> — plano de gerenciamento de resíduos sólidos completo</div></li>
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>Água e Efluentes</strong> — monitoramento, tratamento e reúso</div></li>
+          <li class="sol-item"><div class="sol-item-dot"></div><div><strong>Remediação de Áreas</strong> — investigação e recuperação de solo contaminado</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMO FUNCIONA
+     ============================================================ -->
+<section id="como-funciona" class="section section--dark">
+  <div class="container">
+    <div class="sec-header" data-anim="fade-up">
+      <div class="sec-tag sec-tag--white"><span class="dot"></span> Metodologia</div>
+      <h2 class="t-h2">Como funciona o nosso processo</h2>
+      <p class="t-body" style="color:rgba(255,255,255,0.5);margin-top:12px;">Três etapas claras, com comunicação transparente e entrega técnica garantida.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-step" data-anim="fade-up" data-delay="1">
+        <div class="timeline-num-wrap">
+          <div class="timeline-num-ring"></div>
+          <div class="timeline-num">1</div>
+        </div>
+        <div class="timeline-step-label">Passo 01</div>
+        <div class="timeline-step-title">Diagnóstico</div>
+        <div class="timeline-step-desc">Análise completa da situação atual, documentação existente e exigências legais aplicáveis ao seu negócio.</div>
+      </div>
+      <div class="timeline-step" data-anim="fade-up" data-delay="3">
+        <div class="timeline-num-wrap">
+          <div class="timeline-num-ring"></div>
+          <div class="timeline-num">2</div>
+        </div>
+        <div class="timeline-step-label">Passo 02</div>
+        <div class="timeline-step-title">Plano de Ação</div>
+        <div class="timeline-step-desc">Elaboração de documentos, planos e protocolos necessários para regularização — com cronograma realista e metas mensuráveis.</div>
+      </div>
+      <div class="timeline-step" data-anim="fade-up" data-delay="5">
+        <div class="timeline-num-wrap">
+          <div class="timeline-num-ring"></div>
+          <div class="timeline-num">3</div>
+        </div>
+        <div class="timeline-step-label">Passo 03</div>
+        <div class="timeline-step-title">Acompanhamento</div>
+        <div class="timeline-step-desc">Suporte técnico até a concessão de licenças e implementação de soluções — interface direta com os órgãos ambientais.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUEM SOMOS
+     ============================================================ -->
+<section id="quem-somos" class="section section--white">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Text -->
+      <div class="about-text-block" data-anim="fade-right">
+        <div class="sec-tag" style="margin-bottom:16px;"><span class="dot"></span> Quem Somos</div>
+        <h2 class="t-h2" style="margin-bottom:24px;">Inteligência técnica a serviço da conformidade</h2>
+        <p class="about-desc">
+          A Fator Verde Consultoria é especializada em Meio Ambiente, Qualidade e Segurança do Trabalho. Com uma equipe altamente qualificada, nosso propósito é oferecer serviços de consultoria que promovam conformidade legal, otimizem processos, aumentem a produtividade e contribuam com práticas sustentáveis e seguras no ambiente corporativo.
+        </p>
+        <p class="about-desc">
+          Mais do que entregar documentos, nosso modelo de trabalho é consultivo: entendemos a operação do cliente, identificamos os riscos e construímos soluções que funcionam na prática — dentro dos prazos e em conformidade com os órgãos reguladores.
+        </p>
+        <div class="about-coverage">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p><strong>Localizada em Taubaté/SP</strong>, atendemos o Vale do Paraíba, Litoral Norte, Sul de Minas, Região Metropolitana de São Paulo e Norte Fluminense. Capacidade de atuação em todo o território nacional.</p>
+        </div>
+      </div>
+      <!-- Specialist Card -->
+      <div class="specialist-card" data-anim="fade-left">
+        <div class="specialist-photo">
+          <div class="specialist-photo-bg"></div>
+          <div class="specialist-photo-avatar">
+            <div class="avatar-initials">RD</div>
+            <div class="specialist-yrs">
+              <div class="num">17+</div>
+              <div class="lbl">Anos de<br>Experiência</div>
+            </div>
+          </div>
+        </div>
+        <div class="specialist-body">
+          <div class="specialist-name">Eng. Robson Diego Santos</div>
+          <div class="specialist-role">Engenheiro Ambiental, Civil e Esp. em Segurança do Trabalho</div>
+          <ul class="specialist-creds">
+            <li class="cred"><span class="cred-dot"></span>Engenheiro Ambiental e Sanitarista — Universidade de Taubaté</li>
+            <li class="cred"><span class="cred-dot"></span>Graduado em Engenharia Civil — Universidade de Taubaté (2016)</li>
+            <li class="cred"><span class="cred-dot"></span>Pós-graduação em Auditoria, Perícia e Gestão Ambiental</li>
+            <li class="cred"><span class="cred-dot"></span>Pós-graduação em Engenharia de Segurança do Trabalho — PUC Minas</li>
+            <li class="cred"><span class="cred-dot"></span>Perito ambiental em processos judiciais e trabalhistas</li>
+            <li class="cred"><span class="cred-dot"></span>Auditor em processos para certificações ambientais</li>
+            <li class="cred"><span class="cred-dot"></span>Atuação em regularização ambiental desde 2008</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CASES
+     ============================================================ -->
+<section id="cases" class="section section--dark">
+  <div class="container">
+    <div class="sec-header" data-anim="fade-up">
+      <div class="sec-tag sec-tag--white"><span class="dot"></span> Resultados</div>
+      <h2 class="t-h2">Resultados concretos em projetos reais</h2>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card" data-anim="fade-up" data-delay="1">
+        <div class="case-sector">Setor Industrial — Vale do Paraíba</div>
+        <div class="case-result">Indústria obteve a Licença de Instalação em 45 dias após diagnóstico e adequações técnicas.</div>
+        <span class="case-tag">✓ LI Concedida</span>
+      </div>
+      <div class="case-card" data-anim="fade-up" data-delay="3">
+        <div class="case-sector">Construtora — Interior SP</div>
+        <div class="case-result">Regularizou supressão de vegetação e evitou embargo de obra, garantindo cronograma do empreendimento.</div>
+        <span class="case-tag">✓ Embargo Evitado</span>
+      </div>
+      <div class="case-card" data-anim="fade-up" data-delay="5">
+        <div class="case-sector">Logística — Região Metropolitana SP</div>
+        <div class="case-result">Implementação do PGRS resultou em redução mensurável de custos com destinação de resíduos.</div>
+        <span class="case-tag">✓ PGRS Implementado</span>
+      </div>
+    </div>
+    <div class="testimonial-block" data-anim="fade-up">
+      <div class="testimonial-quote-mark">"</div>
+      <div>
+        <p class="testimonial-text">A Fator Verde resolveu um problema que estava parado há dois anos. Processo claro, equipe técnica competente e resultado dentro do prazo combinado.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-dot">CL</div>
+          <div>
+            <div class="testimonial-name">Cliente Confidencial</div>
+            <div class="testimonial-sector">Setor industrial — Vale do Paraíba</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cases-disclaimer">* Dados representativos. Cases reais serão inseridos com autorização dos clientes.</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="sec-header" data-anim="fade-up">
+      <div class="sec-tag"><span class="dot"></span> Dúvidas Frequentes</div>
+      <h2 class="t-h2">Perguntas que recebemos com frequência</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item" data-anim="fade-up" data-delay="1">
+        <div class="faq-q" role="button" tabindex="0">
+          Quanto tempo leva para regularizar?
+          <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Depende do tipo de licença e da complexidade do caso. Processos simples podem ser concluídos em semanas; outros, como EIA-RIMA, exigem meses. Após o diagnóstico, apresentamos um cronograma realista e os marcos de cada etapa.</div>
+        </div>
+      </div>
+      <div class="faq-item" data-anim="fade-up" data-delay="2">
+        <div class="faq-q" role="button" tabindex="0">
+          Vocês atendem minha região?
+          <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Atendemos Taubaté e toda a região do Vale do Paraíba, Litoral Norte, Sul de Minas, Região Metropolitana de São Paulo e Norte Fluminense. Para outros estados, realizamos análise de viabilidade caso a caso.</div>
+        </div>
+      </div>
+      <div class="faq-item" data-anim="fade-up" data-delay="3">
+        <div class="faq-q" role="button" tabindex="0">
+          Preciso de quais documentos para começar?
+          <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Na etapa de diagnóstico, avaliamos o que você já possui e mapeamos tudo o que precisa ser elaborado ou atualizado. Não há um pacote fixo — a necessidade depende do porte, segmento e histórico da sua empresa.</div>
+        </div>
+      </div>
+      <div class="faq-item" data-anim="fade-up" data-delay="4">
+        <div class="faq-q" role="button" tabindex="0">
+          Vocês emitem os planos e acompanham no órgão?
+          <div class="faq-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+        <div class="faq-a">
+          <div class="faq-a-inner">Sim. Elaboramos toda a documentação técnica — PGRS, PGRCC, PGRSS e demais planos obrigatórios — e fazemos a interface direta com os órgãos ambientais competentes, incluindo protocolos, respostas a ofícios e acompanhamento de processos.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL
+     ============================================================ -->
+<section id="cta-final" class="section">
+  <div class="container">
+    <div class="cta-inner">
+      <div data-anim="fade-right">
+        <div class="cta-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Diagnóstico Inicial Gratuito
+        </div>
+        <h2 class="cta-title">Não deixe sua operação parar por falta de regularização.</h2>
+        <p class="cta-desc">Fale com nossa equipe técnica e receba um diagnóstico inicial do seu caso. Clareza e segurança desde o primeiro contato.</p>
+        <div class="cta-location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Atendimento em Taubaté e Região
+        </div>
+      </div>
+      <div class="cta-actions" data-anim="fade-left">
+        <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+regulariza%C3%A7%C3%A3o+ambiental." class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Entre em Contato
+        </a>
+        <div class="cta-trust">Resposta em até 24 horas úteis</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <a href="#hero" class="logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-opacity="0.4"/>
+                <path d="M7 17c1-3 4-5 7-4s3 5 2 7" stroke="#fff"/>
+                <path d="M12 12c-1-2 1-5 4-5" stroke-opacity="0.7"/>
+              </svg>
+            </div>
+            Fator <span>Verde</span>
+          </a>
+        </div>
+        <p class="footer-tagline">Consultoria ambiental especializada para empresas que precisam de segurança técnica e resultado real.</p>
+        <div class="footer-social">
+          <!-- Instagram -->
+          <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/5512999999999" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)" stroke="none">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Soluções</div>
+        <div class="footer-links">
+          <a href="#solucoes" class="footer-link">Licenciamento Ambiental</a>
+          <a href="#solucoes" class="footer-link">Consultoria ESG</a>
+          <a href="#solucoes" class="footer-link">Inventário de GEE</a>
+          <a href="#solucoes" class="footer-link">Gestão de Resíduos</a>
+          <a href="#solucoes" class="footer-link">Remediação de Áreas</a>
+          <a href="#solucoes" class="footer-link">Segurança do Trabalho</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Empresa</div>
+        <div class="footer-links">
+          <a href="#quem-somos" class="footer-link">Quem Somos</a>
+          <a href="#como-funciona" class="footer-link">Metodologia</a>
+          <a href="#cases" class="footer-link">Cases</a>
+          <a href="#faq" class="footer-link">FAQ</a>
+          <a href="#" class="footer-link">Política de Privacidade</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contato</div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Taubaté, SP — Vale do Paraíba
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (12) 99999-9999
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contato@fatorverde.com.br
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        © 2025 Fator Verde Consultoria. Todos os direitos reservados.
+        <a href="#">Política de Privacidade</a>
+      </div>
+      <div class="footer-cnpj">CNPJ 25.198.604/0001-15</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     WHATSAPP FAB
+     ============================================================ -->
+<div class="whatsapp-fab">
+  <div class="whatsapp-bubble">Fale com um especialista agora</div>
+  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="#fff" stroke="none">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- Sticky CTA mobile -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+quero+um+diagn%C3%B3stico+ambiental." class="btn btn-gold" target="_blank" rel="noopener">
+    Falar com especialista agora
+    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+  /* === SCROLL OBSERVER — entrance animations === */
+  (function () {
+    const elements = document.querySelectorAll('[data-anim]');
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+    elements.forEach(el => observer.observe(el));
+  })();
+
+  /* === HEADER SCROLL BEHAVIOR === */
+  (function () {
+    const header = document.getElementById('header');
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          header.classList.toggle('scrolled', window.scrollY > 60);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+  /* === MOBILE MENU === */
+  (function () {
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mobileNav');
+    const close = document.getElementById('mobileNavClose');
+    const links = document.querySelectorAll('[data-mobile-link]');
+    const open = () => { nav.classList.add('open'); document.body.style.overflow = 'hidden'; };
+    const shut = () => { nav.classList.remove('open'); document.body.style.overflow = ''; };
+    toggle.addEventListener('click', open);
+    close.addEventListener('click', shut);
+    links.forEach(l => l.addEventListener('click', shut));
+    nav.addEventListener('click', e => { if (e.target === nav) shut(); });
+  })();
+
+  /* === FAQ ACCORDION === */
+  (function () {
+    const items = document.querySelectorAll('.faq-item');
+    items.forEach(item => {
+      const q = item.querySelector('.faq-q');
+      const activate = () => {
+        const isOpen = item.classList.contains('open');
+        items.forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      };
+      q.addEventListener('click', activate);
+      q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+    });
+  })();
+
+  /* === SMOOTH ANCHOR SCROLL (older browser fallback) === */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
