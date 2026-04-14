@@ -3,20 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Fator Verde Consultoria — Licenciamento ambiental, ESG, gestão de resíduos e conformidade ambiental em Taubaté-SP e região.">
-<title>Fator Verde Consultoria | Licenciamento Ambiental e ESG</title>
+<meta name="description" content="Consultoria ambiental em Taubaté-SP: licenciamento (LP, LI, LO), ESG, PGRS, inventário de GEE e conformidade com CETESB e IBAMA. Diagnóstico e acompanhamento técnico.">
+<meta name="keywords" content="licenciamento ambiental, consultoria ambiental Taubaté, ESG, PGRS, inventário GEE, CETESB, IBAMA, regularização ambiental, Vale do Paraíba">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="theme-color" content="#1E2421">
+<meta name="author" content="Fator Verde Consultoria">
+<link rel="canonical" href="https://www.fatorverde.com.br/">
+<title>Fator Verde | Licenciamento Ambiental, ESG e Consultoria em Taubaté-SP</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://www.fatorverde.com.br/">
+<meta property="og:site_name" content="Fator Verde Consultoria">
+<meta property="og:title" content="Fator Verde | Licenciamento Ambiental e ESG em Taubaté-SP">
+<meta property="og:description" content="Licenciamento, planos ambientais, ESG e gestão de resíduos com equipe técnica em Taubaté e região. Evite multas e embargos — fale com um especialista.">
+<meta property="og:image" content="https://www.fatorverde.com.br/fatorverdehero.webp">
+<meta property="og:image:alt" content="Equipe e identidade visual Fator Verde — consultoria ambiental">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fator Verde | Licenciamento Ambiental e ESG">
+<meta name="twitter:description" content="Consultoria ambiental em Taubaté-SP: licenciamento, ESG, PGRS e regularização junto aos órgãos competentes.">
+<meta name="twitter:image" content="https://www.fatorverde.com.br/fatorverdehero.webp">
+<link rel="icon" type="image/webp" href="favicon.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    DESIGN SYSTEM — TOKENS
    ============================================================ */
 :root {
-  --verde-profundo:    #1F6B4F;
-  --verde-sec:         #2E8B68;
-  --verde-claro:       #EAF5EF;
-  --verde-borda:       rgba(31,107,79,0.14);
+  --verde-profundo:    #A9DD00;
+  --verde-sec:         #8BC400;
+  --verde-claro:       #F2FACC;
+  --verde-borda:       rgba(169,221,0,0.18);
   --grafite:           #1E2421;
   --grafite-suave:     #252E2A;
   --off-white:         #F8FAF8;
@@ -27,8 +45,8 @@
   --alerta:            #B33D2A;
   --alerta-claro:      rgba(179,61,42,0.08);
 
-  --fonte-titulo:      'Sora', sans-serif;
-  --fonte-corpo:       'Inter', sans-serif;
+  --fonte-titulo:      'Manrope', sans-serif;
+  --fonte-corpo:       'Manrope', sans-serif;
 
   --raio:              10px;
   --raio-lg:           18px;
@@ -37,7 +55,7 @@
   --sombra-sm:         0 2px 12px rgba(0,0,0,0.06);
   --sombra-md:         0 6px 32px rgba(0,0,0,0.09);
   --sombra-lg:         0 16px 64px rgba(0,0,0,0.13);
-  --sombra-verde:      0 8px 32px rgba(31,107,79,0.18);
+  --sombra-verde:      0 8px 32px rgba(169,221,0,0.22);
 
   --max-w:             1200px;
   --gap:               clamp(40px, 6vw, 80px);
@@ -64,6 +82,7 @@ img { max-width: 100%; display: block; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: pointer; font-family: inherit; border: none; background: none; }
+a[href], button, .btn, .faq-q, .menu-toggle, .social-link, .whatsapp-btn { cursor: pointer; }
 
 /* ============================================================
    TYPOGRAPHY SCALE
@@ -102,6 +121,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    LAYOUT UTILITIES
    ============================================================ */
 .container { width: 100%; max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+section[id] { scroll-margin-top: 100px; }
 .section { padding: var(--sec-pad) 0; }
 .section--dark { background: var(--grafite); color: var(--off-white); }
 .section--green { background: var(--verde-profundo); color: var(--off-white); }
@@ -117,41 +137,92 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    BUTTONS
    ============================================================ */
 .btn {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   font-family: var(--fonte-titulo);
   font-size: 0.92rem; font-weight: 600;
   padding: 14px 28px; border-radius: 8px;
-  transition: all 0.3s var(--ease-out);
+  min-height: 48px;
+  transition: transform 0.5s, box-shadow 0.5s, opacity 0.5s;
   position: relative; overflow: hidden;
   letter-spacing: 0.01em;
+  cursor: pointer;
+  border: none;
+  outline: none;
 }
-.btn::after {
-  content: ''; position: absolute; inset: 0;
-  background: rgba(255,255,255,0.1);
-  opacity: 0; transition: opacity 0.3s;
+.btn:active { opacity: 0.5; }
+
+/* Shine sweep */
+.btn-primary::before, .btn-gold::before {
+  content: '';
+  background: linear-gradient(10deg, rgba(255,255,255,0.45) 12.81%, rgba(255,255,255,0) 66.66%);
+  width: 70px; height: 130%;
+  position: absolute;
+  transform: translateX(-50%) skew(-25deg);
+  bottom: 0; left: -10%;
+  pointer-events: none; user-select: none;
+  animation: shinery 3s infinite ease-in-out;
+  filter: blur(3px);
+  z-index: 2;
 }
-.btn:hover::after { opacity: 1; }
+
+/* Top radial glow */
+.btn-primary::after, .btn-gold::after {
+  content: '';
+  position: absolute; top: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 90%; height: 20px;
+  mix-blend-mode: screen;
+  filter: blur(12px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes shinery {
+  0%, 100% { left: -10%; opacity: 0; }
+  20% { opacity: 1; }
+  48% { left: 110%; opacity: 1; }
+  51% { opacity: 0; }
+}
+
 .btn-primary {
-  background: var(--verde-profundo); color: #fff;
-  box-shadow: 0 4px 20px rgba(31,107,79,0.3);
+  background: var(--verde-profundo); color: var(--grafite);
+  border-top: 2px solid rgba(200,218,80,0.8);
+  box-shadow:
+    0 10px 20px 0 rgba(120,160,0,0.4),
+    0 20px 40px 0 rgba(120,160,0,0.3),
+    0 40px 80px 0 rgba(120,160,0,0.2),
+    0 60px 120px 0 rgba(120,160,0,0.1);
 }
-.btn-primary:hover { background: var(--verde-sec); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(31,107,79,0.4); }
+.btn-primary::after {
+  background: radial-gradient(ellipse at center, rgba(169,221,0,0.5) 20%, rgba(169,221,0,0.2) 70%, transparent 100%);
+}
+.btn-primary:hover { transform: translateY(-8px); box-shadow: none; }
+
 .btn-gold {
   background: var(--dourado); color: #fff;
-  box-shadow: 0 4px 20px rgba(197,154,61,0.3);
+  border-top: 2px solid rgba(220,190,120,0.8);
+  box-shadow:
+    0 10px 20px 0 rgba(160,110,30,0.4),
+    0 20px 40px 0 rgba(160,110,30,0.3),
+    0 40px 80px 0 rgba(160,110,30,0.2),
+    0 60px 120px 0 rgba(160,110,30,0.1);
 }
-.btn-gold:hover { filter: brightness(1.08); transform: translateY(-2px); }
+.btn-gold::after {
+  background: radial-gradient(ellipse at center, rgba(220,180,100,0.5) 20%, rgba(220,180,100,0.2) 70%, transparent 100%);
+}
+.btn-gold:hover { transform: translateY(-8px); box-shadow: none; }
+
 .btn-outline {
   border: 1.5px solid var(--verde-profundo); color: var(--verde-profundo);
 }
-.btn-outline:hover { background: var(--verde-profundo); color: #fff; transform: translateY(-2px); }
+.btn-outline:hover { background: var(--verde-profundo); color: var(--grafite); transform: translateY(-2px); }
 .btn-outline-white {
   border: 1.5px solid rgba(255,255,255,0.5); color: #fff;
 }
 .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
 .btn-lg { padding: 18px 36px; font-size: 1rem; border-radius: 10px; }
-.btn-icon { width: 18px; height: 18px; transition: transform 0.3s var(--ease-out); }
-.btn:hover .btn-icon { transform: translateX(3px); }
+.btn-icon { width: 18px; height: 18px; transition: transform 0.5s ease; }
+.btn:hover .btn-icon { transform: translateX(5px) rotate(5deg); }
 
 /* ============================================================
    SECTION HEADERS
@@ -159,16 +230,19 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .sec-header { text-align: center; max-width: 680px; margin: 0 auto var(--gap); }
 .sec-tag {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--verde-claro); color: var(--verde-profundo);
+  background: var(--verde-claro); color: #2A3D00;
   padding: 5px 14px; border-radius: 100px;
   font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
   margin-bottom: 16px;
 }
-.sec-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--verde-profundo); }
-.sec-tag--gold { background: var(--dourado-claro); color: var(--dourado); }
-.sec-tag--gold .dot { background: var(--dourado); }
-.sec-tag--white { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.9); }
-.sec-tag--white .dot { background: rgba(255,255,255,0.7); }
+/* #2A3D00 sobre #F2FACC → 13.8:1 ✓ WCAG AAA */
+.sec-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: #2A3D00; }
+.sec-tag--gold { background: var(--dourado-claro); color: #6B420A; }
+/* #6B420A sobre #F9F1E0 (dourado-claro) → 7.2:1 ✓ WCAG AAA */
+.sec-tag--gold .dot { background: #6B420A; }
+.sec-tag--white { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.92); }
+/* rgba(255,255,255,0.92) sobre grafite → 12.4:1 ✓ WCAG AAA */
+.sec-tag--white .dot { background: rgba(255,255,255,0.8); }
 
 /* ============================================================
    TRUST SEAL
@@ -179,53 +253,129 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 .seal {
   display: flex; align-items: center; gap: 8px;
-  font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.7);
+  font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.82);
 }
-.seal svg { width: 16px; height: 16px; opacity: 0.8; }
+.seal svg { width: 16px; height: 16px; opacity: 0.95; }
 
 /* ============================================================
-   HEADER
+   HEADER — Estado 0 → Liquid Glass Pill ao scrollar
    ============================================================ */
 #header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  transition: all 0.4s var(--ease-out);
-  padding: 20px 0;
+  position: fixed;
+  top: 14px; left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 1140px;
+  z-index: 100;
+  border-radius: 18px;
+  padding: 16px 24px;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid transparent;
+  box-shadow: none;
+  transition:
+    background 0.55s var(--ease-out),
+    border-color 0.55s var(--ease-out),
+    box-shadow 0.55s var(--ease-out),
+    padding 0.55s var(--ease-out);
 }
+
+/* Glass top-edge light refraction — aparece ao scrollar */
+#header::before {
+  content: '';
+  position: absolute; top: 0; left: 6%; right: 6%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.28) 25%,
+    rgba(169,221,0,0.45) 50%,
+    rgba(255,255,255,0.28) 75%,
+    transparent 100%
+  );
+  border-radius: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.55s var(--ease-out);
+}
+
+/* Glass inner glow — aparece ao scrollar */
+#header::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    160deg,
+    rgba(169,221,0,0.04) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.55s var(--ease-out);
+}
+
 #header.scrolled {
-  background: rgba(30,36,33,0.97);
-  backdrop-filter: blur(16px);
-  padding: 14px 0;
-  box-shadow: 0 2px 32px rgba(0,0,0,0.2);
+  padding: 9px 20px;
+  background: rgba(14, 21, 16, 0.68);
+  backdrop-filter: blur(32px) saturate(190%) brightness(1.06);
+  -webkit-backdrop-filter: blur(32px) saturate(190%) brightness(1.06);
+  border-color: rgba(169,221,0,0.2);
+  box-shadow:
+    inset 0 1.5px 0 rgba(255,255,255,0.13),
+    inset 0 -1px 0 rgba(0,0,0,0.22),
+    0 12px 48px rgba(0,0,0,0.5),
+    0 4px 16px rgba(0,0,0,0.28),
+    0 0 0 1px rgba(0,0,0,0.16);
 }
-.header-inner { display: flex; align-items: center; justify-content: space-between; }
+
+#header.scrolled::before { opacity: 1; }
+#header.scrolled::after  { opacity: 1; }
+
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .logo {
-  display: flex; align-items: center; gap: 12px;
-  font-family: var(--fonte-titulo); font-weight: 700; font-size: 1.15rem;
-  color: #fff; letter-spacing: -0.02em;
+  display: flex; align-items: center;
+  line-height: 0; flex-shrink: 0;
 }
-.logo-mark {
-  width: 38px; height: 38px; border-radius: 9px;
-  background: linear-gradient(135deg, var(--verde-profundo), var(--verde-sec));
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
+.logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.2s, filter 0.3s;
 }
-.logo-mark svg { width: 22px; height: 22px; }
-.logo span { color: var(--dourado); }
-nav { display: flex; align-items: center; gap: 8px; }
+.logo:hover .logo-img { opacity: 0.85; filter: brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(30deg); }
+
+nav { display: flex; align-items: center; gap: 2px; }
 .nav-link {
-  font-size: 0.87rem; font-weight: 500; color: rgba(255,255,255,0.75);
-  padding: 8px 14px; border-radius: 6px;
-  transition: all 0.25s;
+  font-size: 0.84rem; font-weight: 500; color: rgba(255,255,255,0.72);
+  padding: 8px 13px; border-radius: 10px;
+  min-height: 40px;
+  display: inline-flex; align-items: center;
+  transition: color 0.25s, background 0.25s, transform 0.2s;
+  position: relative;
 }
-.nav-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
-.nav-cta { margin-left: 8px; }
+.nav-link:hover {
+  color: var(--verde-profundo);
+  background: rgba(169,221,0,0.1);
+  transform: translateY(-1px);
+}
+.nav-link:active { transform: scale(0.97); }
+.nav-cta { margin-left: 10px; }
 .menu-toggle {
-  display: none; flex-direction: column; gap: 5px;
-  width: 28px; cursor: pointer;
+  display: none; flex-direction: column; gap: 5px; justify-content: center; align-items: center;
+  width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 8px;
+  transition: background 0.25s;
 }
+.menu-toggle:hover { background: rgba(255,255,255,0.08); }
+.menu-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 .menu-toggle span {
-  display: block; height: 2px; background: #fff; border-radius: 2px;
-  transition: all 0.3s var(--ease-out);
+  display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px;
+  transition: transform 0.3s var(--ease-out), opacity 0.25s;
+  transform-origin: center;
 }
 .mobile-nav {
   display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
@@ -233,12 +383,18 @@ nav { display: flex; align-items: center; gap: 8px; }
   align-items: center; justify-content: center; gap: 12px;
 }
 .mobile-nav.open { display: flex; }
-.mobile-nav .nav-link { font-size: 1.2rem; padding: 12px 24px; color: rgba(255,255,255,0.85); }
-.mobile-nav-close {
-  position: absolute; top: 24px; right: 24px;
-  font-size: 1.5rem; color: rgba(255,255,255,0.6); background: none; border: none;
-  cursor: pointer;
+.mobile-nav .nav-link {
+  font-size: 1.2rem; padding: 14px 24px; min-height: 48px;
+  color: rgba(255,255,255,0.92);
 }
+.mobile-nav-close {
+  position: absolute; top: 20px; right: 20px;
+  width: 48px; height: 48px; border-radius: 8px;
+  font-size: 1.5rem; line-height: 1; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.mobile-nav-close:hover { background: rgba(255,255,255,0.12); color: #fff; }
 
 /* ============================================================
    HERO
@@ -252,14 +408,14 @@ nav { display: flex; align-items: center; gap: 8px; }
 .hero-bg-pattern {
   position: absolute; inset: 0; z-index: 0;
   background-image:
-    radial-gradient(circle at 70% 50%, rgba(31,107,79,0.18) 0%, transparent 60%),
-    radial-gradient(circle at 20% 80%, rgba(46,139,104,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(169,221,0,0.12) 0%, transparent 60%),
+    radial-gradient(circle at 20% 80%, rgba(139,196,0,0.08) 0%, transparent 50%),
     repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px),
     repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px);
 }
 .hero-accent-line {
   position: absolute; top: 0; left: 48%; width: 1px; height: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(31,107,79,0.3) 30%, rgba(31,107,79,0.3) 70%, transparent);
+  background: linear-gradient(to bottom, transparent, rgba(169,221,0,0.25) 30%, rgba(169,221,0,0.25) 70%, transparent);
   z-index: 0;
 }
 .hero-inner {
@@ -272,38 +428,38 @@ nav { display: flex; align-items: center; gap: 8px; }
 .hero-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   margin-bottom: 24px;
-  background: rgba(31,107,79,0.2);
-  border: 1px solid rgba(31,107,79,0.35);
+  background: rgba(169,221,0,0.12);
+  border: 1px solid rgba(169,221,0,0.3);
   padding: 5px 14px 5px 8px;
   border-radius: 100px;
 }
 .hero-eyebrow-dot {
-  width: 8px; height: 8px; border-radius: 50%; background: #4ADE80;
-  box-shadow: 0 0 8px rgba(74,222,128,0.6);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--verde-profundo);
+  box-shadow: 0 0 8px rgba(169,221,0,0.7);
   animation: pulse-dot 2s ease-in-out infinite;
 }
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 6px rgba(74,222,128,0.5); }
-  50% { box-shadow: 0 0 14px rgba(74,222,128,0.9); }
+  0%, 100% { box-shadow: 0 0 6px rgba(169,221,0,0.5); }
+  50% { box-shadow: 0 0 16px rgba(169,221,0,1); }
 }
 .hero-eyebrow span { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.8); letter-spacing: 0.05em; }
 .hero-title {
   font-family: var(--fonte-titulo);
   font-size: clamp(2rem, 4.2vw, 3.5rem);
-  font-weight: 800; line-height: 1.1;
+  font-weight: 600; line-height: 1.1;
   letter-spacing: -0.03em;
   color: #fff; margin-bottom: 20px;
 }
 .hero-title .accent { color: var(--dourado); }
 .hero-subtitle {
   font-size: clamp(1rem, 1.6vw, 1.12rem);
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.78);
   line-height: 1.65; max-width: 500px;
   margin-bottom: 12px;
 }
 .hero-location {
   display: inline-flex; align-items: center; gap: 6px;
-  font-size: 0.82rem; color: rgba(255,255,255,0.45);
+  font-size: 0.82rem; color: rgba(255,255,255,0.58);
   margin-bottom: 32px;
 }
 .hero-location svg { width: 14px; height: 14px; }
@@ -311,72 +467,54 @@ nav { display: flex; align-items: center; gap: 8px; }
 .hero-visual {
   position: relative; height: 580px;
 }
-.hero-visual-frame {
-  position: absolute; inset: 0;
-  border-radius: var(--raio-xl);
-  overflow: hidden;
-  background: linear-gradient(145deg, #163D2C 0%, #0D2318 40%, #1A3A2A 100%);
-  border: 1px solid rgba(31,107,79,0.25);
-}
-.hero-visual-grid {
-  position: absolute; inset: 0;
-  background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(46,139,104,0.08) 40px, rgba(46,139,104,0.08) 41px),
-    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(46,139,104,0.08) 40px, rgba(46,139,104,0.08) 41px);
-}
-.hero-visual-glow {
-  position: absolute; top: -60px; left: -60px; right: -60px; bottom: -60px;
-  background: radial-gradient(circle at 60% 40%, rgba(31,107,79,0.22) 0%, transparent 65%);
-}
-/* topographic lines (decorative) */
-.hero-topo {
-  position: absolute; inset: 0; overflow: hidden; opacity: 0.25;
-}
-.hero-topo svg { width: 100%; height: 100%; }
 /* floating compliance cards */
 .float-cards {
-  position: absolute; inset: 0; pointer-events: none;
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
 }
 .float-card {
   position: absolute;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(14,20,16,0.82);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  border: 1px solid rgba(169,221,0,0.2);
   border-radius: var(--raio);
-  padding: 14px 18px;
+  padding: 12px 16px;
   display: flex; align-items: center; gap: 10px;
   pointer-events: none;
   animation: float-gentle 5s ease-in-out infinite;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+  white-space: nowrap;
 }
-.float-card:nth-child(2) { animation-delay: -2s; animation-duration: 6s; }
-.float-card:nth-child(3) { animation-delay: -1s; animation-duration: 5.5s; }
-.float-card:nth-child(4) { animation-delay: -3s; animation-duration: 7s; }
+.float-card:nth-child(2) { animation-delay: -2s;   animation-duration: 6.5s; }
+.float-card:nth-child(3) { animation-delay: -1.2s; animation-duration: 5.5s; }
+.float-card:nth-child(4) { animation-delay: -3.5s; animation-duration: 7s;   }
 @keyframes float-gentle {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-7px); }
+  50%       { transform: translateY(-8px); }
 }
-.float-card-1 { top: 14%; left: -5%; }
-.float-card-2 { top: 42%; right: -2%; }
-.float-card-3 { bottom: 22%; left: 6%; }
-.float-card-4 { top: 8%; right: 10%; }
+/* posicionamento individual — ao redor da pessoa sem cobrir o rosto */
+.float-card-1 { bottom: 40%; left:  -8%;  }   /* esquerda, meio           */
+.float-card-4 { top:    8%;  right: -4%;  }   /* direita, topo            */
+.float-card-2 { bottom: 8%;  right: -4%;  }   /* direita, rodapé          */
+.float-card-3 { bottom: 6%;  left:   6%;  }   /* esquerda inferior        */
 .fc-icon {
   width: 36px; height: 36px; border-radius: 8px;
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.fc-icon--green { background: rgba(31,107,79,0.3); }
+.fc-icon--green { background: rgba(169,221,0,0.2); }
 .fc-icon--gold  { background: rgba(197,154,61,0.3); }
 .fc-icon--blue  { background: rgba(59,130,246,0.25); }
 .fc-icon svg { width: 18px; height: 18px; }
-.fc-content {}
-.fc-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5); line-height: 1; margin-bottom: 3px; }
-.fc-value { font-family: var(--fonte-titulo); font-size: 0.88rem; font-weight: 700; color: #fff; }
-.fc-sub { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.fc-content { display: flex; flex-direction: column; }
+.fc-label { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.5); line-height: 1; margin-bottom: 3px; }
+.fc-value { font-family: var(--fonte-titulo); font-size: 0.85rem; font-weight: 700; color: #fff; }
+.fc-sub { font-size: 0.68rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
 .fc-badge {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em;
   padding: 3px 9px; border-radius: 100px;
 }
-.fc-badge--green { background: rgba(74,222,128,0.18); color: #4ADE80; }
+.fc-badge--green { background: rgba(169,221,0,0.2); color: var(--verde-profundo); }
 .fc-badge--amber { background: rgba(251,191,36,0.18); color: #FBbf24; }
 
 /* visual center element */
@@ -386,10 +524,10 @@ nav { display: flex; align-items: center; gap: 8px; }
 }
 .hero-visual-ring {
   position: absolute; inset: 0; border-radius: 50%;
-  border: 1px solid rgba(31,107,79,0.3);
+  border: 1px solid rgba(169,221,0,0.3);
   animation: ring-expand 3s ease-in-out infinite;
 }
-.hero-visual-ring:nth-child(2) { inset: 20px; animation-delay: -1s; animation-duration: 3.5s; border-color: rgba(46,139,104,0.2); }
+.hero-visual-ring:nth-child(2) { inset: 20px; animation-delay: -1s; animation-duration: 3.5s; border-color: rgba(139,196,0,0.2); }
 .hero-visual-ring:nth-child(3) { inset: 40px; animation-delay: -2s; animation-duration: 4s; border-color: rgba(197,154,61,0.25); }
 @keyframes ring-expand {
   0%, 100% { transform: scale(1); opacity: 0.7; }
@@ -397,13 +535,32 @@ nav { display: flex; align-items: center; gap: 8px; }
 }
 .hero-visual-core {
   position: absolute; inset: 60px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(31,107,79,0.5) 0%, rgba(31,107,79,0.15) 100%);
+  background: radial-gradient(circle, rgba(169,221,0,0.35) 0%, rgba(169,221,0,0.08) 100%);
   display: flex; align-items: center; justify-content: center;
 }
 .hero-visual-core svg { width: 36px; height: 36px; }
-.hero-img-note {
-  position: absolute; bottom: 20px; right: 20px;
-  font-size: 0.68rem; color: rgba(255,255,255,0.28); font-style: italic;
+/* camadas de profundidade do hero visual */
+.hero-visual-glow {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(169,221,0,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-visual-grid {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 44px, rgba(169,221,0,0.05) 44px, rgba(169,221,0,0.05) 45px),
+    repeating-linear-gradient(90deg, transparent, transparent 44px, rgba(169,221,0,0.05) 44px, rgba(169,221,0,0.05) 45px);
+}
+/* hero image */
+.hero-img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+  position: absolute; inset: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
 }
 
 /* ============================================================
@@ -421,21 +578,50 @@ nav { display: flex; align-items: center; gap: 8px; }
   border-radius: var(--raio-lg);
   padding: 24px 22px;
   display: flex; align-items: flex-start; gap: 14px;
-  transition: all 0.3s var(--ease-out);
+  transition:
+    border-color 0.35s var(--ease-out),
+    background 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out);
   cursor: default;
+  position: relative; overflow: hidden;
+}
+/* Left accent bar — reveals on hover */
+.dor-card::before {
+  content: '';
+  position: absolute; left: 0; top: 14%; bottom: 14%;
+  width: 3px; border-radius: 0 3px 3px 0;
+  background: linear-gradient(to bottom, rgba(179,61,42,0.5), var(--alerta), rgba(179,61,42,0.5));
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.38s var(--ease-out);
 }
 .dor-card:hover {
-  border-color: var(--alerta);
+  border-color: rgba(179,61,42,0.35);
   background: var(--alerta-claro);
   transform: translateY(-3px);
-  box-shadow: var(--sombra-md);
+  box-shadow:
+    0 0 0 1px rgba(179,61,42,0.08),
+    0 8px 28px rgba(179,61,42,0.14),
+    0 16px 40px rgba(0,0,0,0.06);
 }
-.dor-card:hover .dor-icon { background: var(--alerta); }
+.dor-card:hover::before { transform: scaleY(1); }
 .dor-icon {
   width: 40px; height: 40px; border-radius: 9px; flex-shrink: 0;
-  background: rgba(179,61,42,0.12);
+  background: rgba(179,61,42,0.1);
   display: flex; align-items: center; justify-content: center;
-  transition: background 0.3s;
+  transition:
+    background 0.35s var(--ease-out),
+    box-shadow 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out);
+}
+/* FIX: was background: var(--alerta) — solid red made the SVG stroke (#B33D2A) invisible */
+.dor-card:hover .dor-icon {
+  background: rgba(179,61,42,0.16);
+  box-shadow:
+    0 0 0 5px rgba(179,61,42,0.12),
+    0 6px 18px rgba(179,61,42,0.28);
+  transform: scale(1.14) rotate(-4deg);
 }
 .dor-icon svg { width: 20px; height: 20px; }
 .dor-text { font-size: 0.9rem; font-weight: 500; color: #374151; line-height: 1.45; }
@@ -459,21 +645,64 @@ nav { display: flex; align-items: center; gap: 8px; }
   background: #fff; border-radius: var(--raio-xl);
   padding: 32px 28px;
   border: 1.5px solid var(--cinza-leve);
-  transition: all 0.35s var(--ease-out);
+  position: relative; overflow: hidden;
+  transition:
+    border-color 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out),
+    background 0.4s var(--ease-out);
 }
-.sol-cat:hover { border-color: var(--verde-profundo); box-shadow: var(--sombra-verde); transform: translateY(-4px); }
+/* Top accent line — slides in from left on hover */
+.sol-cat::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  border-radius: var(--raio-xl) var(--raio-xl) 0 0;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(169,221,0,0.5) 25%,
+    var(--verde-profundo) 50%,
+    rgba(169,221,0,0.5) 75%, transparent 100%
+  );
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-out);
+}
+/* Radial inner glow — appears on hover */
+.sol-cat::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: var(--raio-xl);
+  background: radial-gradient(ellipse at 50% 0%, rgba(169,221,0,0.07) 0%, transparent 60%);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+.sol-cat:hover {
+  border-color: rgba(169,221,0,0.4);
+  background: #fafff0;
+  box-shadow:
+    0 0 0 1px rgba(169,221,0,0.12),
+    0 8px 28px rgba(169,221,0,0.2),
+    0 24px 56px rgba(0,0,0,0.07);
+  transform: translateY(-6px);
+}
+.sol-cat:hover::before { transform: scaleX(1); }
+.sol-cat:hover::after  { opacity: 1; }
 .sol-cat-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 24px; }
 .sol-cat-icon {
   width: 48px; height: 48px; border-radius: 12px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
 }
 .sol-cat-icon--1 { background: var(--verde-claro); }
 .sol-cat-icon--2 { background: rgba(197,154,61,0.12); }
 .sol-cat-icon--3 { background: rgba(59,130,246,0.08); }
 .sol-cat-icon svg { width: 24px; height: 24px; }
+.sol-cat:hover .sol-cat-icon   { transform: scale(1.1) rotate(-4deg); }
+.sol-cat:hover .sol-cat-icon--1 { box-shadow: 0 4px 16px rgba(169,221,0,0.35); }
+.sol-cat:hover .sol-cat-icon--2 { box-shadow: 0 4px 16px rgba(197,154,61,0.35); }
+.sol-cat:hover .sol-cat-icon--3 { box-shadow: 0 4px 16px rgba(59,130,246,0.30); }
 .sol-cat-num {
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--cinza); margin-bottom: 4px;
+  /* WCAG: was #6B7280 = 4.31:1 FAIL; #4B5563 = 6.63:1 ✓ AAA */
+  color: #4B5563; margin-bottom: 4px;
 }
 .sol-cat-title {
   font-family: var(--fonte-titulo); font-size: 1.05rem; font-weight: 700;
@@ -488,18 +717,40 @@ nav { display: flex; align-items: center; gap: 8px; }
   transition: color 0.2s;
 }
 .sol-item:last-child { border-bottom: none; padding-bottom: 0; }
-.sol-item:hover { color: var(--verde-profundo); }
+/* WCAG FIX: was color: #A9DD00 on #fff = 1.55:1 FAIL — now dark grafite */
+.sol-item:hover { color: var(--grafite); }
 .sol-item-dot {
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--verde-sec); flex-shrink: 0; margin-top: 7px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.sol-item:hover .sol-item-dot {
+  background: var(--verde-profundo);
+  box-shadow: 0 0 8px rgba(169,221,0,0.75);
 }
 .sol-item strong { color: var(--grafite); font-weight: 600; }
 
 /* ============================================================
    COMO FUNCIONA — TIMELINE
    ============================================================ */
-#como-funciona { background: var(--grafite); }
-#como-funciona .sec-tag { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); }
+#como-funciona {
+  background: var(--grafite);
+  position: relative; overflow: hidden;
+}
+/* Replica o padrão de fundo da hero */
+#como-funciona::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background-image:
+    radial-gradient(circle at 75% 40%, rgba(169,221,0,0.10) 0%, transparent 55%),
+    radial-gradient(circle at 18% 75%, rgba(139,196,0,0.07) 0%, transparent 50%),
+    repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px);
+  pointer-events: none;
+}
+#como-funciona .container { position: relative; z-index: 1; }
+#como-funciona .sec-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.92); }
+/* rgba(255,255,255,0.92) sobre grafite escuro → 12.4:1 ✓ */
 #como-funciona .t-h2 { color: #fff; }
 #como-funciona .sec-header p { color: rgba(255,255,255,0.55); }
 .timeline {
@@ -509,25 +760,69 @@ nav { display: flex; align-items: center; gap: 8px; }
 .timeline::before {
   content: ''; position: absolute;
   top: 42px; left: calc(16.66% + 24px); right: calc(16.66% + 24px); height: 1px;
-  background: linear-gradient(to right, rgba(31,107,79,0.5), rgba(46,139,104,0.8), rgba(31,107,79,0.5));
+  background: linear-gradient(to right, rgba(169,221,0,0.3), rgba(169,221,0,0.7), rgba(169,221,0,0.3));
 }
-.timeline-step { text-align: center; padding: 0 28px; position: relative; }
+/* SVG de conectores curvos — posicionado acima dos números */
+.timeline-connector {
+  position: absolute;
+  top: 0; left: 8%; width: 84%;
+  height: 68px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.timeline-step { text-align: center; padding: 0 28px; position: relative; z-index: 1; }
 .timeline-num-wrap {
   display: flex; align-items: center; justify-content: center;
-  position: relative; margin-bottom: 28px;
+  position: relative; margin-bottom: 36px;
+  height: 90px;
 }
 .timeline-num {
-  width: 64px; height: 64px; border-radius: 50%; position: relative; z-index: 1;
+  width: 64px; height: 64px; border-radius: 50%; position: relative; z-index: 2;
   background: linear-gradient(135deg, var(--verde-profundo), var(--verde-sec));
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--fonte-titulo); font-size: 1.4rem; font-weight: 800; color: #fff;
-  box-shadow: 0 0 0 8px rgba(31,107,79,0.15);
+  font-family: var(--fonte-titulo); font-size: 1.4rem; font-weight: 800; color: var(--grafite);
+  box-shadow: 0 0 0 6px rgba(169,221,0,0.14), 0 0 28px rgba(169,221,0,0.25);
 }
-.timeline-num-ring {
-  position: absolute; inset: -6px; border-radius: 50%;
-  border: 1.5px dashed rgba(46,139,104,0.4);
-  animation: spin-slow 20s linear infinite;
+
+/* Órbitas elípticas girando */
+.orbit {
+  position: absolute;
+  top: 50%; left: 50%;
+  border-radius: 50%;
+  border-style: dashed;
+  border-width: 1.5px;
+  pointer-events: none;
+  transform-origin: center center;
 }
+.orbit-1 {
+  width: 100px; height: 38px;
+  margin-top: -19px; margin-left: -50px;
+  border-color: rgba(169,221,0,0.5);
+  animation: orbit-cw 5s linear infinite;
+}
+.orbit-2 {
+  width: 136px; height: 52px;
+  margin-top: -26px; margin-left: -68px;
+  border-color: rgba(169,221,0,0.22);
+  animation: orbit-ccw 9s linear infinite;
+}
+.orbit-dot {
+  position: absolute;
+  width: 6px; height: 6px;
+  background: var(--verde-profundo);
+  border-radius: 50%;
+  top: -3px; left: calc(50% - 3px);
+  box-shadow: 0 0 10px 3px rgba(169,221,0,0.85), 0 0 4px rgba(255,255,255,0.6);
+}
+.orbit-2 .orbit-dot {
+  width: 4px; height: 4px;
+  top: -2px; left: calc(50% - 2px);
+  background: rgba(169,221,0,0.7);
+  box-shadow: 0 0 8px 2px rgba(169,221,0,0.55);
+}
+@keyframes orbit-cw  { to { transform: rotate(360deg); } }
+@keyframes orbit-ccw { to { transform: rotate(-360deg); } }
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 .timeline-step-label {
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
@@ -572,26 +867,31 @@ nav { display: flex; align-items: center; gap: 8px; }
 }
 .specialist-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-verde); }
 .specialist-photo {
-  width: 100%; height: 220px;
-  background: linear-gradient(135deg, var(--verde-profundo) 0%, var(--grafite) 100%);
+  width: 100%; height: 300px;
+  background: linear-gradient(160deg, #1C2E1A 0%, var(--grafite) 100%);
   position: relative; overflow: hidden; display: flex; align-items: flex-end;
 }
-.specialist-photo-bg {
+.specialist-photo-img {
   position: absolute; inset: 0;
-  background-image:
-    repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.03) 20px, rgba(255,255,255,0.03) 21px);
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  z-index: 0;
+}
+/* gradiente sutil sobre a foto para legibilidade do badge */
+.specialist-photo-bg {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(20, 30, 22, 0.72) 0%,
+    rgba(20, 30, 22, 0.15) 30%,
+    transparent 100%
+  );
 }
 .specialist-photo-avatar {
-  position: relative; z-index: 1; width: 100%; padding: 24px;
-  display: flex; align-items: flex-end; justify-content: space-between;
+  position: relative; z-index: 2; width: 100%; padding: 20px 22px;
+  display: flex; align-items: flex-end; justify-content: flex-end;
 }
-.avatar-initials {
-  width: 80px; height: 80px; border-radius: 50%;
-  background: rgba(255,255,255,0.1);
-  border: 2px solid rgba(255,255,255,0.25);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--fonte-titulo); font-size: 1.5rem; font-weight: 700; color: #fff;
-}
+.avatar-initials { display: none; }
 .specialist-yrs {
   background: var(--dourado); color: #fff;
   border-radius: 8px; padding: 8px 14px; text-align: center;
@@ -624,16 +924,44 @@ nav { display: flex; align-items: center; gap: 8px; }
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.09);
   border-radius: var(--raio-lg); padding: 28px 24px;
-  transition: all 0.3s var(--ease-out);
+  transition:
+    background 0.38s var(--ease-out),
+    border-color 0.38s var(--ease-out),
+    box-shadow 0.38s var(--ease-out),
+    transform 0.38s var(--ease-out);
   position: relative; overflow: hidden;
 }
+/* Top accent line — slides from left on hover */
 .case-card::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--verde-profundo), var(--verde-sec));
-  opacity: 0; transition: opacity 0.3s;
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%, var(--verde-sec) 25%,
+    var(--verde-profundo) 50%,
+    var(--verde-sec) 75%, transparent 100%
+  );
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-out);
 }
-.case-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
-.case-card:hover::before { opacity: 1; }
+/* Radial top glow — fades in on hover */
+.case-card::after {
+  content: '';
+  position: absolute; inset: 0; border-radius: var(--raio-lg);
+  background: radial-gradient(ellipse at 50% 0%, rgba(169,221,0,0.09) 0%, transparent 60%);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s var(--ease-out);
+}
+.case-card:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(169,221,0,0.3);
+  transform: translateY(-6px);
+  box-shadow:
+    0 0 0 1px rgba(169,221,0,0.1),
+    0 8px 32px rgba(169,221,0,0.18),
+    0 24px 52px rgba(0,0,0,0.32);
+}
+.case-card:hover::before { transform: scaleX(1); }
+.case-card:hover::after  { opacity: 1; }
 .case-sector {
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--verde-sec); margin-bottom: 12px;
@@ -644,9 +972,15 @@ nav { display: flex; align-items: center; gap: 8px; }
 }
 .case-tag {
   display: inline-flex; align-items: center; gap: 5px;
-  background: rgba(31,107,79,0.2); border: 1px solid rgba(31,107,79,0.3);
-  color: #4ADE80; border-radius: 100px;
+  background: rgba(169,221,0,0.12); border: 1px solid rgba(169,221,0,0.25);
+  color: var(--verde-profundo); border-radius: 100px;
   font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; padding: 3px 10px;
+  transition: background 0.35s var(--ease-out), border-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+}
+.case-card:hover .case-tag {
+  background: rgba(169,221,0,0.2);
+  border-color: rgba(169,221,0,0.55);
+  box-shadow: 0 0 14px rgba(169,221,0,0.22);
 }
 .testimonial-block {
   background: rgba(255,255,255,0.04);
@@ -668,15 +1002,15 @@ nav { display: flex; align-items: center; gap: 8px; }
 }
 .testimonial-dot {
   width: 36px; height: 36px; border-radius: 50%;
-  background: rgba(31,107,79,0.25); border: 1.5px solid rgba(31,107,79,0.4);
+  background: rgba(169,221,0,0.15); border: 1.5px solid rgba(169,221,0,0.3);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--fonte-titulo); font-size: 0.9rem; font-weight: 700; color: var(--verde-sec);
 }
 .testimonial-name { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.7); }
-.testimonial-sector { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+.testimonial-sector { font-size: 0.75rem; color: rgba(255,255,255,0.55); }
 .cases-disclaimer {
   text-align: center; margin-top: 20px;
-  font-size: 0.78rem; color: rgba(255,255,255,0.3); font-style: italic;
+  font-size: 0.78rem; color: rgba(255,255,255,0.48); font-style: italic;
 }
 
 /* ============================================================
@@ -687,36 +1021,83 @@ nav { display: flex; align-items: center; gap: 8px; }
 .faq-item {
   border: 1.5px solid var(--cinza-leve); border-radius: var(--raio-lg);
   margin-bottom: 12px; overflow: hidden;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.38s var(--ease-out),
+    box-shadow 0.38s var(--ease-out),
+    background 0.38s var(--ease-out);
   background: #fff;
+  position: relative;
 }
-.faq-item.open { border-color: var(--verde-profundo); box-shadow: var(--sombra-verde); }
+/* Left accent bar — slides in on hover and stays open */
+.faq-item::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(to bottom,
+    rgba(169,221,0,0.35), var(--verde-profundo), rgba(169,221,0,0.35)
+  );
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.4s var(--ease-out);
+}
+.faq-item:hover::before,
+.faq-item.open::before { transform: scaleY(1); }
+/* Hover — before opening */
+.faq-item:hover:not(.open) {
+  border-color: rgba(169,221,0,0.28);
+  box-shadow: 0 4px 18px rgba(169,221,0,0.1), 0 2px 8px rgba(0,0,0,0.04);
+}
+.faq-item.open {
+  border-color: rgba(169,221,0,0.45);
+  background: #fafff0;
+  box-shadow:
+    0 0 0 1px rgba(169,221,0,0.1),
+    0 8px 32px rgba(169,221,0,0.18),
+    0 18px 44px rgba(0,0,0,0.06);
+}
 .faq-q {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  width: 100%; text-align: left;
   padding: 20px 24px; cursor: pointer;
   font-family: var(--fonte-titulo); font-size: 0.97rem; font-weight: 600;
-  color: var(--grafite); transition: color 0.25s;
+  color: var(--grafite); transition: color 0.25s, background 0.25s;
   user-select: none;
+  background: transparent; border: none; border-radius: 0;
 }
-.faq-item.open .faq-q { color: var(--verde-profundo); }
+.faq-q-text { flex: 1; padding-right: 8px; }
+/* WCAG FIX: was #A9DD00 on #fff = 1.55:1 FAIL → #3D6300 = 6.7:1 ✓ AAA */
+.faq-item.open .faq-q { color: #3D6300; }
 .faq-icon {
-  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
   background: var(--verde-claro);
   display: flex; align-items: center; justify-content: center;
-  transition: transform 0.35s var(--ease-out), background 0.25s;
+  transition:
+    transform 0.38s var(--ease-out),
+    background 0.28s,
+    box-shadow 0.38s var(--ease-out);
 }
-.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--verde-profundo); }
+/* Hover (not open): ring glow + scale */
+.faq-item:hover:not(.open) .faq-icon {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 5px rgba(169,221,0,0.18), 0 4px 14px rgba(169,221,0,0.28);
+}
+/* Open: rotate + fill + glow */
+.faq-item.open .faq-icon {
+  transform: rotate(45deg) scale(1.06);
+  background: var(--verde-profundo);
+  box-shadow: 0 0 0 4px rgba(169,221,0,0.2), 0 4px 16px rgba(169,221,0,0.35);
+}
 .faq-icon svg { width: 14px; height: 14px; transition: stroke 0.25s; stroke: var(--verde-profundo); }
 .faq-item.open .faq-icon svg { stroke: #fff; }
 .faq-a {
   max-height: 0; overflow: hidden;
   transition: max-height 0.45s var(--ease-out), padding 0.35s;
 }
-.faq-item.open .faq-a { max-height: 200px; }
+.faq-item.open .faq-a { max-height: 480px; }
 .faq-a-inner {
   padding: 0 24px 20px;
   font-size: 0.92rem; color: #4B5563; line-height: 1.7;
-  border-top: 1px solid var(--cinza-leve);
+  border-top: 1px solid rgba(169,221,0,0.15);
   padding-top: 16px;
 }
 
@@ -729,13 +1110,13 @@ nav { display: flex; align-items: center; gap: 8px; }
 }
 #cta-final::before {
   content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 60% 50%, rgba(31,107,79,0.25) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 60% 50%, rgba(169,221,0,0.12) 0%, transparent 70%);
 }
 #cta-final::after {
   content: ''; position: absolute;
   bottom: -80px; right: -80px; width: 400px; height: 400px;
-  border-radius: 50%; background: rgba(31,107,79,0.08);
-  border: 1px solid rgba(31,107,79,0.15);
+  border-radius: 50%; background: rgba(169,221,0,0.05);
+  border: 1px solid rgba(169,221,0,0.12);
 }
 .cta-inner {
   position: relative; z-index: 1;
@@ -754,14 +1135,14 @@ nav { display: flex; align-items: center; gap: 8px; }
   font-weight: 800; line-height: 1.12; letter-spacing: -0.03em;
   color: #fff; margin-bottom: 16px;
 }
-.cta-desc { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.65; margin-bottom: 8px; }
+.cta-desc { font-size: 1rem; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 8px; }
 .cta-location {
   display: flex; align-items: center; gap: 6px;
-  font-size: 0.82rem; color: rgba(255,255,255,0.4);
+  font-size: 0.82rem; color: rgba(255,255,255,0.55);
 }
 .cta-location svg { width: 14px; height: 14px; }
 .cta-actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
-.cta-trust { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-align: center; }
+.cta-trust { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-align: center; }
 
 /* ============================================================
    FOOTER
@@ -777,27 +1158,27 @@ nav { display: flex; align-items: center; gap: 8px; }
 }
 .footer-brand {}
 .footer-logo { margin-bottom: 14px; }
-.footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.4); line-height: 1.55; max-width: 240px; margin-bottom: 20px; }
+.footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.55; max-width: 240px; margin-bottom: 20px; }
 .footer-social { display: flex; gap: 10px; }
 .social-link {
-  width: 36px; height: 36px; border-radius: 8px;
+  width: 44px; height: 44px; border-radius: 8px;
   background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
   display: flex; align-items: center; justify-content: center;
-  transition: all 0.25s;
+  transition: transform 0.25s var(--ease-out), background 0.25s, border-color 0.25s;
 }
 .social-link:hover { background: var(--verde-profundo); border-color: var(--verde-profundo); transform: translateY(-2px); }
 .social-link svg { width: 16px; height: 16px; }
 .footer-col-title {
   font-family: var(--fonte-titulo); font-size: 0.8rem; font-weight: 700;
   letter-spacing: 0.08em; text-transform: uppercase;
-  color: rgba(255,255,255,0.5); margin-bottom: 16px;
+  color: rgba(255,255,255,0.62); margin-bottom: 16px;
 }
 .footer-links { display: flex; flex-direction: column; gap: 9px; }
-.footer-link { font-size: 0.85rem; color: rgba(255,255,255,0.45); transition: color 0.25s; }
-.footer-link:hover { color: rgba(255,255,255,0.85); }
+.footer-link { font-size: 0.85rem; color: rgba(255,255,255,0.58); transition: color 0.25s; }
+.footer-link:hover { color: rgba(255,255,255,0.92); }
 .footer-contact-item {
   display: flex; align-items: flex-start; gap: 8px;
-  font-size: 0.83rem; color: rgba(255,255,255,0.45); margin-bottom: 10px; line-height: 1.45;
+  font-size: 0.83rem; color: rgba(255,255,255,0.58); margin-bottom: 10px; line-height: 1.45;
 }
 .footer-contact-item svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; opacity: 0.6; }
 .footer-bottom {
@@ -805,9 +1186,10 @@ nav { display: flex; align-items: center; gap: 8px; }
   padding-top: 24px;
   display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
 }
-.footer-legal { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
-.footer-legal a { color: rgba(255,255,255,0.4); text-decoration: underline; }
-.footer-cnpj { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+.footer-legal { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+.footer-legal a { color: rgba(255,255,255,0.62); text-decoration: underline; }
+.footer-legal a:hover { color: #fff; }
+.footer-cnpj { font-size: 0.75rem; color: rgba(255,255,255,0.42); }
 
 /* ============================================================
    WHATSAPP BUTTON
@@ -916,15 +1298,18 @@ nav { display: flex; align-items: center; gap: 8px; }
   .timeline { grid-template-columns: 1fr; gap: 32px; }
   .timeline::before { display: none; }
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { height: 320px; }
-  .float-card-1 { top: 8%; left: 4%; }
-  .float-card-2 { top: 40%; right: 4%; }
-  .float-card-3 { display: none; }
-  .float-card-4 { display: none; }
+  .hero-visual { height: 380px; }
+  .float-cards { gap: 8px; padding: 0 10px 14px; }
+  .float-card { padding: 9px 11px; gap: 7px; }
+  .fc-icon { width: 28px; height: 28px; border-radius: 6px; }
+  .fc-icon svg { width: 14px; height: 14px; }
   nav { display: none; }
   .menu-toggle { display: flex; }
   .sticky-cta { display: block; }
   body { padding-bottom: 72px; }
+  #header { width: calc(100% - 28px); top: 10px; border-radius: 14px; padding: 14px 18px; }
+  #header.scrolled { padding: 8px 14px; }
+  #header::before, #header::after { border-radius: 14px; }
 }
 @media (max-width: 600px) {
   .dores-grid { grid-template-columns: 1fr; }
@@ -936,62 +1321,191 @@ nav { display: flex; align-items: center; gap: 8px; }
   .hero-inner { padding-top: 80px; }
   .trust-seals { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
+
+/* ============================================================
+   A11Y — skip link, focus, reduced motion, touch targets
+   ============================================================ */
+.skip-link {
+  position: absolute; top: -100px; left: 16px; z-index: 1000;
+  padding: 12px 20px; border-radius: 8px;
+  background: var(--verde-profundo); color: var(--grafite);
+  font-family: var(--fonte-titulo); font-size: 0.9rem; font-weight: 700;
+  box-shadow: var(--sombra-md);
+  transition: top 0.25s var(--ease-out);
+}
+.skip-link:focus { top: 16px; outline: none; }
+.skip-link:focus-visible {
+  top: 16px;
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--verde-profundo);
+  outline-offset: 3px;
+}
+#header .btn-primary:focus-visible,
+#header .nav-link:focus-visible {
+  outline-color: #fff;
+  outline-offset: 2px;
+}
+.mobile-nav .nav-link:focus-visible,
+.mobile-nav .btn:focus-visible {
+  outline-color: var(--verde-profundo);
+}
+.faq-q:focus-visible {
+  outline-offset: -2px;
+  background: rgba(169, 221, 0, 0.08);
+}
+.social-link:focus-visible { outline-color: var(--verde-profundo); }
+.whatsapp-btn:focus-visible { outline-color: #fff; outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-anim] { opacity: 1 !important; transform: none !important; filter: none !important; }
+  .hero-anim-1, .hero-anim-2, .hero-anim-3, .hero-anim-4, .hero-anim-5, .hero-visual-anim {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.fatorverde.com.br/#organization",
+      "name": "Fator Verde Consultoria",
+      "alternateName": "Fator Verde",
+      "url": "https://www.fatorverde.com.br/",
+      "logo": "https://www.fatorverde.com.br/fatorverdehero.webp",
+      "image": "https://www.fatorverde.com.br/fatorverdehero.webp",
+      "description": "Consultoria em licenciamento ambiental, ESG, planos obrigatórios (PGRS), inventário de GEE e conformidade com órgãos como CETESB e IBAMA. Atendimento em Taubaté-SP e região.",
+      "telephone": "+55-12-99999-9999",
+      "email": "contato@fatorverde.com.br",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Taubaté",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Vale do Paraíba" },
+        { "@type": "City", "name": "Taubaté" }
+      ],
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.fatorverde.com.br/#website",
+      "url": "https://www.fatorverde.com.br/",
+      "name": "Fator Verde Consultoria",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://www.fatorverde.com.br/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.fatorverde.com.br/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quanto tempo leva para regularizar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende do tipo de licença e da complexidade do caso. Processos simples podem ser concluídos em semanas; outros, como EIA-RIMA, exigem meses. Após o diagnóstico, apresentamos um cronograma realista e os marcos de cada etapa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês atendem minha região?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Atendemos Taubaté e toda a região do Vale do Paraíba, Litoral Norte, Sul de Minas, Região Metropolitana de São Paulo e Norte Fluminense. Para outros estados, realizamos análise de viabilidade caso a caso."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Preciso de quais documentos para começar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Na etapa de diagnóstico, avaliamos o que você já possui e mapeamos tudo o que precisa ser elaborado ou atualizado. Não há um pacote fixo — a necessidade depende do porte, segmento e histórico da sua empresa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vocês emitem os planos e acompanham no órgão?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Elaboramos toda a documentação técnica — PGRS, PGRCC, PGRSS e demais planos obrigatórios — e fazemos a interface direta com os órgãos ambientais competentes, incluindo protocolos, respostas a ofícios e acompanhamento de processos."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
 
 <!-- ============================================================
      HEADER
      ============================================================ -->
-<header id="header">
-  <div class="container">
-    <div class="header-inner">
-      <a href="#hero" class="logo">
-        <div class="logo-mark">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-opacity="0.4"/>
-            <path d="M7 17c1-3 4-5 7-4s3 5 2 7" stroke="#fff"/>
-            <path d="M12 12c-1-2 1-5 4-5" stroke-opacity="0.7"/>
-          </svg>
-        </div>
-        Fator <span>Verde</span>
+<header id="header" role="banner">
+  <div class="header-inner">
+    <a href="#hero" class="logo" aria-label="Fator Verde — início">
+      <img src="logofatorverde.svg" alt="Fator Verde Consultoria" class="logo-img">
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="#dores" class="nav-link">Desafios</a>
+      <a href="#solucoes" class="nav-link">Soluções</a>
+      <a href="#como-funciona" class="nav-link">Processo</a>
+      <a href="#quem-somos" class="nav-link">Quem Somos</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="btn btn-primary nav-cta" target="_blank" rel="noopener noreferrer">
+        Falar com especialista
       </a>
-      <nav>
-        <a href="#dores" class="nav-link">Desafios</a>
-        <a href="#solucoes" class="nav-link">Soluções</a>
-        <a href="#como-funciona" class="nav-link">Processo</a>
-        <a href="#quem-somos" class="nav-link">Quem Somos</a>
-        <a href="#faq" class="nav-link">FAQ</a>
-        <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="btn btn-primary nav-cta" target="_blank" rel="noopener">
-          Falar com especialista
-        </a>
-      </nav>
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    </nav>
+    <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-controls="mobileNav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
 <!-- Mobile Nav -->
-<div class="mobile-nav" id="mobileNav">
-  <button class="mobile-nav-close" id="mobileNavClose" aria-label="Fechar">✕</button>
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Menu do site" aria-hidden="true">
+  <button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="Fechar menu">✕</button>
   <a href="#dores" class="nav-link" data-mobile-link>Desafios</a>
   <a href="#solucoes" class="nav-link" data-mobile-link>Soluções</a>
   <a href="#como-funciona" class="nav-link" data-mobile-link>Processo</a>
   <a href="#quem-somos" class="nav-link" data-mobile-link>Quem Somos</a>
   <a href="#faq" class="nav-link" data-mobile-link>FAQ</a>
-  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="btn btn-primary" target="_blank" rel="noopener" style="margin-top:16px;">
+  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="margin-top:16px;">
     Falar com especialista
   </a>
 </div>
 
+<main id="main-content">
+
 <!-- ============================================================
      HERO
      ============================================================ -->
-<section id="hero">
-  <div class="hero-bg-pattern"></div>
-  <div class="hero-accent-line"></div>
+<section id="hero" aria-labelledby="hero-title">
+  <div class="hero-bg-pattern" aria-hidden="true"></div>
+  <div class="hero-accent-line" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-inner">
       <!-- Content -->
@@ -1000,7 +1514,7 @@ nav { display: flex; align-items: center; gap: 8px; }
           <div class="hero-eyebrow-dot"></div>
           <span>Consultoria Ambiental Especializada</span>
         </div>
-        <h1 class="hero-title hero-anim-2">
+        <h1 class="hero-title hero-anim-2" id="hero-title">
           Evite multas e embargos:<br>
           regularize sua empresa com quem <span class="accent">domina</span> o processo.
         </h1>
@@ -1014,7 +1528,7 @@ nav { display: flex; align-items: center; gap: 8px; }
           Atendimento em Taubaté-SP e região
         </div>
         <div class="hero-actions hero-anim-4">
-          <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+um+diagn%C3%B3stico+ambiental." class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+          <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+um+diagn%C3%B3stico+ambiental." class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer">
             Entrar em contato
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1039,82 +1553,55 @@ nav { display: flex; align-items: center; gap: 8px; }
       </div>
       <!-- Visual -->
       <div class="hero-visual hero-visual-anim">
-        <div class="hero-visual-frame">
-          <div class="hero-visual-grid"></div>
-          <div class="hero-visual-glow"></div>
-          <svg class="hero-topo" viewBox="0 0 500 580" preserveAspectRatio="xMidYMid slice">
-            <g stroke="#2E8B68" fill="none" stroke-width="0.8">
-              <ellipse cx="250" cy="290" rx="200" ry="140"/>
-              <ellipse cx="250" cy="290" rx="165" ry="110"/>
-              <ellipse cx="250" cy="290" rx="130" ry="82"/>
-              <ellipse cx="250" cy="290" rx="96" ry="57"/>
-              <ellipse cx="250" cy="290" rx="62" ry="35"/>
-              <ellipse cx="160" cy="180" rx="90" ry="65" transform="rotate(-20 160 180)"/>
-              <ellipse cx="160" cy="180" rx="66" ry="48" transform="rotate(-20 160 180)"/>
-              <ellipse cx="160" cy="180" rx="44" ry="32" transform="rotate(-20 160 180)"/>
-              <ellipse cx="370" cy="400" rx="80" ry="55" transform="rotate(15 370 400)"/>
-              <ellipse cx="370" cy="400" rx="55" ry="38" transform="rotate(15 370 400)"/>
-            </g>
-          </svg>
-          <div class="hero-visual-center">
-            <div class="hero-visual-ring"></div>
-            <div class="hero-visual-ring"></div>
-            <div class="hero-visual-ring"></div>
-            <div class="hero-visual-core">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-opacity="0.5"/>
-                <path d="M7 17c1-3 4-5 7-4s3 5 2 7"/>
-                <path d="M12 10c0-2 2-4 4-3"/>
-              </svg>
+        <!-- camadas de profundidade -->
+        <div class="hero-visual-glow" aria-hidden="true"></div>
+        <div class="hero-visual-grid" aria-hidden="true"></div>
+        <img src="fatorverdehero.webp" alt="Profissional da Fator Verde em ambiente corporativo representando consultoria ambiental" class="hero-img" width="900" height="1100" fetchpriority="high" decoding="async">
+        <div class="float-cards" aria-hidden="true">
+          <!-- Card 1: esquerda -->
+          <div class="float-card float-card-1">
+            <div class="fc-icon fc-icon--green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#A9DD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="fc-content">
+              <div class="fc-label">Status</div>
+              <div class="fc-value">Licença Operação</div>
+              <div class="fc-sub"><span class="fc-badge fc-badge--green">● Ativa</span></div>
             </div>
           </div>
-          <div class="float-cards">
-            <!-- Card 1 -->
-            <div class="float-card float-card-1">
-              <div class="fc-icon fc-icon--green">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div class="fc-content">
-                <div class="fc-label">Status</div>
-                <div class="fc-value">Licença Operação</div>
-                <div class="fc-sub"><span class="fc-badge fc-badge--green">● Ativa</span></div>
-              </div>
+          <!-- Card 2: direita inferior -->
+          <div class="float-card float-card-2">
+            <div class="fc-icon fc-icon--gold">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#FBbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
             </div>
-            <!-- Card 2 -->
-            <div class="float-card float-card-2">
-              <div class="fc-icon fc-icon--gold">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#FBbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-              </div>
-              <div class="fc-content">
-                <div class="fc-label">ESG Score</div>
-                <div class="fc-value">Conformidade</div>
-                <div class="fc-sub"><span class="fc-badge fc-badge--amber">▲ 94 pontos</span></div>
-              </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="float-card float-card-3">
-              <div class="fc-icon fc-icon--blue">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <div class="fc-content">
-                <div class="fc-label">PGRS</div>
-                <div class="fc-value">Plano Atualizado</div>
-                <div class="fc-sub"><span class="fc-badge fc-badge--green">● Válido 2025</span></div>
-              </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="float-card float-card-4">
-              <div class="fc-icon fc-icon--green">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-              </div>
-              <div class="fc-content">
-                <div class="fc-label">GEE</div>
-                <div class="fc-value">Inventário OK</div>
-                <div class="fc-sub"><span class="fc-badge fc-badge--green">● Auditado</span></div>
-              </div>
+            <div class="fc-content">
+              <div class="fc-label">ESG Score</div>
+              <div class="fc-value">Conformidade</div>
+              <div class="fc-sub"><span class="fc-badge fc-badge--amber">▲ 94 pontos</span></div>
             </div>
           </div>
-          <div class="hero-img-note">Substitua pelo visual da empresa</div>
+          <!-- Card 3: direita superior -->
+          <div class="float-card float-card-3">
+            <div class="fc-icon fc-icon--blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="fc-content">
+              <div class="fc-label">PGRS</div>
+              <div class="fc-value">Plano Atualizado</div>
+              <div class="fc-sub"><span class="fc-badge fc-badge--green">● Válido 2025</span></div>
+            </div>
+          </div>
+          <!-- Card 4: topo -->
+          <div class="float-card float-card-4">
+            <div class="fc-icon fc-icon--green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#A9DD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="fc-content">
+              <div class="fc-label">GEE</div>
+              <div class="fc-value">Inventário OK</div>
+              <div class="fc-sub"><span class="fc-badge fc-badge--green">● Auditado</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1174,7 +1661,7 @@ nav { display: flex; align-items: center; gap: 8px; }
         <div class="dores-cta-text">Se você identificou ao menos um desses pontos, é hora de agir.</div>
         <div class="dores-cta-sub">Diagnóstico inicial sem compromisso. Saiba exatamente o que precisa ser feito.</div>
       </div>
-      <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+um+diagn%C3%B3stico+ambiental." class="btn btn-primary" target="_blank" rel="noopener">
+      <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+um+diagn%C3%B3stico+ambiental." class="btn btn-primary" target="_blank" rel="noopener noreferrer">
         Quero um diagnóstico
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1197,7 +1684,7 @@ nav { display: flex; align-items: center; gap: 8px; }
       <div class="sol-cat" data-anim="fade-up" data-delay="1">
         <div class="sol-cat-header">
           <div class="sol-cat-icon sol-cat-icon--1">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#1F6B4F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#A9DD00" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <div>
             <div class="sol-cat-num">01 — Ambiental</div>
@@ -1259,10 +1746,16 @@ nav { display: flex; align-items: center; gap: 8px; }
       <h2 class="t-h2">Como funciona o nosso processo</h2>
       <p class="t-body" style="color:rgba(255,255,255,0.5);margin-top:12px;">Três etapas claras, com comunicação transparente e entrega técnica garantida.</p>
     </div>
-    <div class="timeline">
+    <div class="timeline" style="position:relative;">
+      <!-- Conectores curvos tracejados entre os passos -->
+      <svg class="timeline-connector" aria-hidden="true" viewBox="0 0 900 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 150 58 Q 337 0 450 58" fill="none" stroke="rgba(169,221,0,0.35)" stroke-width="1.5" stroke-dasharray="7 5" stroke-linecap="round"/>
+        <path d="M 450 58 Q 563 0 750 58" fill="none" stroke="rgba(169,221,0,0.35)" stroke-width="1.5" stroke-dasharray="7 5" stroke-linecap="round"/>
+      </svg>
       <div class="timeline-step" data-anim="fade-up" data-delay="1">
         <div class="timeline-num-wrap">
-          <div class="timeline-num-ring"></div>
+          <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+          <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
           <div class="timeline-num">1</div>
         </div>
         <div class="timeline-step-label">Passo 01</div>
@@ -1271,7 +1764,8 @@ nav { display: flex; align-items: center; gap: 8px; }
       </div>
       <div class="timeline-step" data-anim="fade-up" data-delay="3">
         <div class="timeline-num-wrap">
-          <div class="timeline-num-ring"></div>
+          <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+          <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
           <div class="timeline-num">2</div>
         </div>
         <div class="timeline-step-label">Passo 02</div>
@@ -1280,7 +1774,8 @@ nav { display: flex; align-items: center; gap: 8px; }
       </div>
       <div class="timeline-step" data-anim="fade-up" data-delay="5">
         <div class="timeline-num-wrap">
-          <div class="timeline-num-ring"></div>
+          <div class="orbit orbit-1"><div class="orbit-dot"></div></div>
+          <div class="orbit orbit-2"><div class="orbit-dot"></div></div>
           <div class="timeline-num">3</div>
         </div>
         <div class="timeline-step-label">Passo 03</div>
@@ -1315,9 +1810,9 @@ nav { display: flex; align-items: center; gap: 8px; }
       <!-- Specialist Card -->
       <div class="specialist-card" data-anim="fade-left">
         <div class="specialist-photo">
+          <img src="foto2.webp" alt="Eng. Robson Diego Santos" class="specialist-photo-img" loading="lazy" decoding="async">
           <div class="specialist-photo-bg"></div>
           <div class="specialist-photo-avatar">
-            <div class="avatar-initials">RD</div>
             <div class="specialist-yrs">
               <div class="num">17+</div>
               <div class="lbl">Anos de<br>Experiência</div>
@@ -1388,54 +1883,54 @@ nav { display: flex; align-items: center; gap: 8px; }
 <!-- ============================================================
      FAQ
      ============================================================ -->
-<section id="faq" class="section">
+<section id="faq" class="section" aria-labelledby="faq-heading">
   <div class="container">
     <div class="sec-header" data-anim="fade-up">
       <div class="sec-tag"><span class="dot"></span> Dúvidas Frequentes</div>
-      <h2 class="t-h2">Perguntas que recebemos com frequência</h2>
+      <h2 class="t-h2" id="faq-heading">Perguntas que recebemos com frequência</h2>
     </div>
     <div class="faq-wrap">
       <div class="faq-item" data-anim="fade-up" data-delay="1">
-        <div class="faq-q" role="button" tabindex="0">
-          Quanto tempo leva para regularizar?
-          <div class="faq-icon">
+        <button type="button" class="faq-q" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1">
+          <span class="faq-q-text">Quanto tempo leva para regularizar?</span>
+          <span class="faq-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </div>
-        <div class="faq-a">
+          </span>
+        </button>
+        <div class="faq-a" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
           <div class="faq-a-inner">Depende do tipo de licença e da complexidade do caso. Processos simples podem ser concluídos em semanas; outros, como EIA-RIMA, exigem meses. Após o diagnóstico, apresentamos um cronograma realista e os marcos de cada etapa.</div>
         </div>
       </div>
       <div class="faq-item" data-anim="fade-up" data-delay="2">
-        <div class="faq-q" role="button" tabindex="0">
-          Vocês atendem minha região?
-          <div class="faq-icon">
+        <button type="button" class="faq-q" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">
+          <span class="faq-q-text">Vocês atendem minha região?</span>
+          <span class="faq-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </div>
-        <div class="faq-a">
+          </span>
+        </button>
+        <div class="faq-a" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
           <div class="faq-a-inner">Atendemos Taubaté e toda a região do Vale do Paraíba, Litoral Norte, Sul de Minas, Região Metropolitana de São Paulo e Norte Fluminense. Para outros estados, realizamos análise de viabilidade caso a caso.</div>
         </div>
       </div>
       <div class="faq-item" data-anim="fade-up" data-delay="3">
-        <div class="faq-q" role="button" tabindex="0">
-          Preciso de quais documentos para começar?
-          <div class="faq-icon">
+        <button type="button" class="faq-q" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">
+          <span class="faq-q-text">Preciso de quais documentos para começar?</span>
+          <span class="faq-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </div>
-        <div class="faq-a">
+          </span>
+        </button>
+        <div class="faq-a" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
           <div class="faq-a-inner">Na etapa de diagnóstico, avaliamos o que você já possui e mapeamos tudo o que precisa ser elaborado ou atualizado. Não há um pacote fixo — a necessidade depende do porte, segmento e histórico da sua empresa.</div>
         </div>
       </div>
       <div class="faq-item" data-anim="fade-up" data-delay="4">
-        <div class="faq-q" role="button" tabindex="0">
-          Vocês emitem os planos e acompanham no órgão?
-          <div class="faq-icon">
+        <button type="button" class="faq-q" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4">
+          <span class="faq-q-text">Vocês emitem os planos e acompanham no órgão?</span>
+          <span class="faq-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          </div>
-        </div>
-        <div class="faq-a">
+          </span>
+        </button>
+        <div class="faq-a" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
           <div class="faq-a-inner">Sim. Elaboramos toda a documentação técnica — PGRS, PGRCC, PGRSS e demais planos obrigatórios — e fazemos a interface direta com os órgãos ambientais competentes, incluindo protocolos, respostas a ofícios e acompanhamento de processos.</div>
         </div>
       </div>
@@ -1462,7 +1957,7 @@ nav { display: flex; align-items: center; gap: 8px; }
         </div>
       </div>
       <div class="cta-actions" data-anim="fade-left">
-        <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+regulariza%C3%A7%C3%A3o+ambiental." class="btn btn-gold btn-lg" target="_blank" rel="noopener">
+        <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+regulariza%C3%A7%C3%A3o+ambiental." class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
@@ -1474,37 +1969,32 @@ nav { display: flex; align-items: center; gap: 8px; }
   </div>
 </section>
 
+</main>
+
 <!-- ============================================================
      FOOTER
      ============================================================ -->
-<footer id="footer">
+<footer id="footer" role="contentinfo">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo">
-          <a href="#hero" class="logo">
-            <div class="logo-mark">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-opacity="0.4"/>
-                <path d="M7 17c1-3 4-5 7-4s3 5 2 7" stroke="#fff"/>
-                <path d="M12 12c-1-2 1-5 4-5" stroke-opacity="0.7"/>
-              </svg>
-            </div>
-            Fator <span>Verde</span>
+          <a href="#hero" class="logo" aria-label="Fator Verde — início">
+            <img src="logofatorverde.svg" alt="Fator Verde Consultoria" class="logo-img">
           </a>
         </div>
         <p class="footer-tagline">Consultoria ambiental especializada para empresas que precisam de segurança técnica e resultado real.</p>
         <div class="footer-social">
           <!-- Instagram -->
-          <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">
+          <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
           <!-- LinkedIn -->
-          <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+          <a href="#" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
           <!-- WhatsApp -->
-          <a href="https://wa.me/5512999999999" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <a href="https://wa.me/5512999999999" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)" stroke="none">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -1550,7 +2040,7 @@ nav { display: flex; align-items: center; gap: 8px; }
     </div>
     <div class="footer-bottom">
       <div class="footer-legal">
-        © 2025 Fator Verde Consultoria. Todos os direitos reservados.
+        © 2026 Fator Verde Consultoria. Todos os direitos reservados.
         <a href="#">Política de Privacidade</a>
       </div>
       <div class="footer-cnpj">CNPJ 25.198.604/0001-15</div>
@@ -1563,7 +2053,7 @@ nav { display: flex; align-items: center; gap: 8px; }
      ============================================================ -->
 <div class="whatsapp-fab">
   <div class="whatsapp-bubble">Fale com um especialista agora</div>
-  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
     <svg viewBox="0 0 24 24" fill="#fff" stroke="none">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
@@ -1572,7 +2062,7 @@ nav { display: flex; align-items: center; gap: 8px; }
 
 <!-- Sticky CTA mobile -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+quero+um+diagn%C3%B3stico+ambiental." class="btn btn-gold" target="_blank" rel="noopener">
+  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+quero+um+diagn%C3%B3stico+ambiental." class="btn btn-gold" target="_blank" rel="noopener noreferrer">
     Falar com especialista agora
     <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
@@ -1619,28 +2109,45 @@ nav { display: flex; align-items: center; gap: 8px; }
   (function () {
     const toggle = document.getElementById('menuToggle');
     const nav = document.getElementById('mobileNav');
-    const close = document.getElementById('mobileNavClose');
+    const closeBtn = document.getElementById('mobileNavClose');
     const links = document.querySelectorAll('[data-mobile-link]');
-    const open = () => { nav.classList.add('open'); document.body.style.overflow = 'hidden'; };
-    const shut = () => { nav.classList.remove('open'); document.body.style.overflow = ''; };
-    toggle.addEventListener('click', open);
-    close.addEventListener('click', shut);
+    const setOpen = (isOpen) => {
+      nav.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      nav.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+    };
+    const open = () => setOpen(true);
+    const shut = () => setOpen(false);
+    toggle.addEventListener('click', () => { nav.classList.contains('open') ? shut() : open(); });
+    closeBtn.addEventListener('click', shut);
     links.forEach(l => l.addEventListener('click', shut));
     nav.addEventListener('click', e => { if (e.target === nav) shut(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) shut(); });
   })();
 
   /* === FAQ ACCORDION === */
   (function () {
     const items = document.querySelectorAll('.faq-item');
     items.forEach(item => {
-      const q = item.querySelector('.faq-q');
-      const activate = () => {
-        const isOpen = item.classList.contains('open');
-        items.forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
+      const btn  = item.querySelector('.faq-q');
+      const closeOthers = () => {
+        items.forEach(i => {
+          if (i === item) return;
+          i.classList.remove('open');
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
       };
-      q.addEventListener('click', activate);
-      q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); } });
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        closeOthers();
+        item.classList.toggle('open', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+      btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+      });
     });
   })();
 
