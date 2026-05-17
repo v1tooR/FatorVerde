@@ -3,26 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Consultoria ambiental em Taubaté-SP: licenciamento (LP, LI, LO), ESG, PGRS, inventário de GEE e conformidade com CETESB e IBAMA. Diagnóstico e acompanhamento técnico.">
-<meta name="keywords" content="licenciamento ambiental, consultoria ambiental Taubaté, ESG, PGRS, inventário GEE, CETESB, IBAMA, regularização ambiental, Vale do Paraíba">
+<meta name="description" content="Consultoria ambiental em Taubaté-SP: licenciamento ambiental (LP, LI, LO), ESG, PGRS, GEE, segurança do trabalho e engenharia civil. Atendimento técnico no Vale do Paraíba.">
+<meta name="keywords" content="licenciamento ambiental, consultoria ambiental Taubaté, ESG, PGRS, inventário GEE, CETESB, IBAMA, regularização ambiental, Vale do Paraíba, segurança do trabalho, engenharia civil, São José dos Campos">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="theme-color" content="#1E2421">
 <meta name="author" content="Fator Verde Consultoria">
 <link rel="canonical" href="https://www.fatorverde.com.br/">
-<title>Fator Verde | Licenciamento Ambiental, ESG e Consultoria em Taubaté-SP</title>
+<title>Fator Verde | Consultoria Ambiental e ESG em Taubaté-SP</title>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://www.fatorverde.com.br/">
 <meta property="og:site_name" content="Fator Verde Consultoria">
 <meta property="og:title" content="Fator Verde | Licenciamento Ambiental e ESG em Taubaté-SP">
 <meta property="og:description" content="Licenciamento, planos ambientais, ESG e gestão de resíduos com equipe técnica em Taubaté e região. Evite multas e embargos — fale com um especialista.">
-<meta property="og:image" content="https://www.fatorverde.com.br/fatorverdehero.webp">
+<meta property="og:image" content="https://www.fatorverde.com.br/assets/img/fatorverdehero.webp">
 <meta property="og:image:alt" content="Equipe e identidade visual Fator Verde — consultoria ambiental">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fator Verde | Licenciamento Ambiental e ESG">
 <meta name="twitter:description" content="Consultoria ambiental em Taubaté-SP: licenciamento, ESG, PGRS e regularização junto aos órgãos competentes.">
-<meta name="twitter:image" content="https://www.fatorverde.com.br/fatorverdehero.webp">
+<meta name="twitter:image" content="https://www.fatorverde.com.br/assets/img/fatorverdehero.webp">
 <link rel="icon" type="image/webp" href="favicon.webp">
+<link rel="apple-touch-icon" href="favicon.webp">
+<link rel="alternate" hreflang="pt-BR" href="https://www.fatorverde.com.br/">
+<meta name="geo.region" content="BR-SP">
+<meta name="geo.placename" content="Taubaté, São Paulo">
+<meta name="geo.position" content="-23.026;-45.556">
+<meta name="ICBM" content="-23.026, -45.556">
+<link rel="dns-prefetch" href="https://wa.me">
+<link rel="preload" as="image" href="assets/img/industria.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
@@ -417,7 +427,7 @@ nav { display: flex; align-items: center; gap: 2px; }
       rgba(14,22,16,0.70) 100%
     ),
     /* foto de fundo */
-    url('fundo1fatorvende.webp');
+    url('assets/img/fundo1fatorvende.webp');
   background-size: auto, auto, auto, auto, 100% 100%, cover;
   background-position: center, center, center, center, center, center top;
   background-repeat: no-repeat;
@@ -883,29 +893,21 @@ nav { display: flex; align-items: center; gap: 2px; }
 }
 .specialist-card:hover { transform: translateY(-5px); box-shadow: var(--sombra-verde); }
 .specialist-photo {
-  width: 100%; height: 300px;
-  background: linear-gradient(160deg, #1C2E1A 0%, var(--grafite) 100%);
-  position: relative; overflow: hidden; display: flex; align-items: flex-end;
+  background-color: white;
+  width: 100%;
+  height: 380px;
+  position: relative; overflow: hidden;
+  display: flex; align-items: flex-end; justify-content: center;
+  /* sem fundo — a imagem flutua sobre o branco do card */
 }
 .specialist-photo-img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center top;
-  z-index: 0;
+  height: 100%; width: auto;
+  object-fit: contain; object-position: center bottom;
+  display: block; position: relative; z-index: 0;
 }
-/* gradiente sutil sobre a foto para legibilidade do badge */
-.specialist-photo-bg {
-  position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgba(20, 30, 22, 0.72) 0%,
-    rgba(20, 30, 22, 0.15) 30%,
-    transparent 100%
-  );
-}
+.specialist-photo-bg { display: none; }
 .specialist-photo-avatar {
-  position: relative; z-index: 2; width: 100%; padding: 20px 22px;
-  display: flex; align-items: flex-end; justify-content: flex-end;
+  position: absolute; bottom: 16px; right: 16px; z-index: 2;
 }
 .avatar-initials { display: none; }
 .specialist-yrs {
@@ -914,7 +916,7 @@ nav { display: flex; align-items: center; gap: 2px; }
 }
 .specialist-yrs .num { font-family: var(--fonte-titulo); font-size: 1.6rem; font-weight: 800; line-height: 1; }
 .specialist-yrs .lbl { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; opacity: 0.9; }
-.specialist-body { padding: 24px 24px 28px; }
+.specialist-body { padding: 24px 24px 28px; border-top: 1.5px solid var(--cinza-leve); }
 .specialist-name {
   font-family: var(--fonte-titulo); font-size: 1.1rem; font-weight: 700;
   color: var(--grafite); margin-bottom: 4px;
@@ -945,7 +947,7 @@ nav { display: flex; align-items: center; gap: 2px; }
       rgba(10,18,12,0.80) 40%,
       rgba(10,18,12,0.84) 100%
     ),
-    url('fundo2fatorverde.webp');
+    url('assets/img/fundo2fatorverde.webp');
   background-size: auto, auto, auto, auto, 100% 100%, cover;
   background-position: center, center, center, center, center, center center;
   background-repeat: no-repeat;
@@ -1172,7 +1174,7 @@ nav { display: flex; align-items: center; gap: 2px; }
       rgba(8,15,10,0.78) 45%,
       rgba(10,18,12,0.82) 100%
     ),
-    url('fundo3fatorverde.webp');
+    url('assets/img/fundo3fatorverde.webp');
   background-size: auto, auto, auto, auto, 100% 100%, cover;
   background-position: center, center, center, center, center, center center;
   background-repeat: no-repeat;
@@ -1481,9 +1483,13 @@ button:focus-visible,
       "name": "Fator Verde Consultoria",
       "alternateName": "Fator Verde",
       "url": "https://www.fatorverde.com.br/",
-      "logo": "https://www.fatorverde.com.br/fatorverdehero.webp",
-      "image": "https://www.fatorverde.com.br/fatorverdehero.webp",
-      "description": "Consultoria em licenciamento ambiental, ESG, planos obrigatórios (PGRS), inventário de GEE e conformidade com órgãos como CETESB e IBAMA. Atendimento em Taubaté-SP e região.",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.fatorverde.com.br/assets/img/logofatorverde.svg",
+        "caption": "Fator Verde Consultoria"
+      },
+      "image": "https://www.fatorverde.com.br/assets/img/fatorverdehero.webp",
+      "description": "Consultoria em licenciamento ambiental, ESG, PGRS, inventário de GEE, segurança do trabalho e engenharia civil. Atendimento técnico especializado em Taubaté-SP e região do Vale do Paraíba.",
       "telephone": "+55-12-99999-9999",
       "email": "contato@fatorverde.com.br",
       "priceRange": "$$",
@@ -1493,10 +1499,138 @@ button:focus-visible,
         "addressRegion": "SP",
         "addressCountry": "BR"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.026,
+        "longitude": -45.556
+      },
       "areaServed": [
         { "@type": "AdministrativeArea", "name": "Vale do Paraíba" },
-        { "@type": "City", "name": "Taubaté" }
+        { "@type": "City", "name": "Taubaté" },
+        { "@type": "City", "name": "São José dos Campos" },
+        { "@type": "City", "name": "Jacareí" },
+        { "@type": "City", "name": "Pindamonhangaba" },
+        { "@type": "City", "name": "Guaratinguetá" },
+        { "@type": "City", "name": "Lorena" },
+        { "@type": "State", "name": "São Paulo" }
       ],
+      "knowsAbout": [
+        "Licenciamento Ambiental",
+        "Consultoria ESG",
+        "PGRS",
+        "Inventário de GEE",
+        "CETESB",
+        "IBAMA",
+        "Segurança do Trabalho",
+        "Engenharia Civil",
+        "Regularização Ambiental",
+        "Remediação de Áreas Contaminadas",
+        "Recursos Hídricos"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Consultoria Ambiental",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Licenciamento Ambiental",
+              "description": "Obtenção de Licença Prévia (LP), Licença de Instalação (LI) e Licença de Operação (LO) junto à CETESB, IBAMA e órgãos municipais."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consultoria ESG",
+              "description": "Estratégia e governança ambiental, social e corporativa para empresas que precisam reportar conformidade a investidores e stakeholders."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gestão de Recursos Hídricos",
+              "description": "Outorga de uso da água, enquadramento de corpos hídricos e gestão de efluentes junto ao DAEE e ANA."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Plano de Gerenciamento de Resíduos Sólidos (PGRS)",
+              "description": "Elaboração, implantação e acompanhamento do PGRS conforme a Lei 12.305/2010 (PNRS)."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inventário de GEE",
+              "description": "Levantamento e quantificação de emissões de gases de efeito estufa com base nas metodologias GHG Protocol e ISO 14064."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Remediação de Áreas Contaminadas",
+              "description": "Diagnóstico, projeto e execução de remediação de passivos ambientais conforme ABNT NBR 15515 e diretrizes CETESB."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Serviços Técnicos em Segurança do Trabalho",
+              "description": "PPRA, PCMSO, laudos de insalubridade e periculosidade, LTCAT, PGR e acompanhamento de conformidade NR."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consultoria em Engenharia Civil",
+              "description": "Projetos estruturais, laudos técnicos, regularização de obras, projetos hidrossanitários e laudos periciais."
+            }
+          }
+        ]
+      },
+      "employee": {
+        "@type": "Person",
+        "@id": "https://www.fatorverde.com.br/#robson-diego-santos",
+        "name": "Robson Diego Santos",
+        "jobTitle": "Diretor e Engenheiro Ambiental",
+        "description": "Engenheiro Ambiental e Sanitarista, Engenheiro Civil, Auditor e Perito Ambiental com mais de 17 anos de atuação em regularização ambiental no Brasil.",
+        "worksFor": { "@id": "https://www.fatorverde.com.br/#organization" },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Engenheiro Ambiental e Sanitarista",
+            "recognizedBy": { "@type": "Organization", "name": "Universidade de Taubaté" }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "name": "Engenheiro Civil",
+            "recognizedBy": { "@type": "Organization", "name": "Universidade de Taubaté" }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "postdoctoral",
+            "name": "Auditor, Perito e Gestor Ambiental",
+            "recognizedBy": { "@type": "Organization", "name": "Faculdade Oswaldo Cruz" }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "postdoctoral",
+            "name": "Engenheiro de Segurança do Trabalho",
+            "recognizedBy": { "@type": "Organization", "name": "PUC Minas" }
+          }
+        ]
+      },
       "sameAs": []
     },
     {
@@ -1506,6 +1640,17 @@ button:focus-visible,
       "name": "Fator Verde Consultoria",
       "inLanguage": "pt-BR",
       "publisher": { "@id": "https://www.fatorverde.com.br/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.fatorverde.com.br/#webpage",
+      "url": "https://www.fatorverde.com.br/",
+      "name": "Fator Verde | Consultoria Ambiental e ESG em Taubaté-SP",
+      "isPartOf": { "@id": "https://www.fatorverde.com.br/#website" },
+      "about": { "@id": "https://www.fatorverde.com.br/#organization" },
+      "description": "Consultoria ambiental em Taubaté-SP: licenciamento (LP, LI, LO), ESG, PGRS, inventário de GEE e conformidade com CETESB e IBAMA.",
+      "inLanguage": "pt-BR",
+      "dateModified": "2026-05-09"
     },
     {
       "@type": "FAQPage",
@@ -1559,7 +1704,7 @@ button:focus-visible,
 <header id="header" role="banner">
   <div class="header-inner">
     <a href="#hero" class="logo" aria-label="Fator Verde — início">
-      <img src="logofatorverde.svg" alt="Fator Verde Consultoria" class="logo-img">
+      <img src="assets/img/logofatorverde.svg" alt="Fator Verde Consultoria" class="logo-img">
     </a>
     <nav aria-label="Navegação principal">
       <a href="#dores" class="nav-link">Desafios</a>
@@ -1648,7 +1793,7 @@ button:focus-visible,
         <!-- camadas de profundidade -->
         <div class="hero-visual-glow" aria-hidden="true"></div>
         <div class="hero-visual-grid" aria-hidden="true"></div>
-        <img src="industria.webp" alt="Profissional da Fator Verde em ambiente corporativo representando consultoria ambiental" class="hero-img" width="900" height="1100" fetchpriority="high" decoding="async">
+        <img src="assets/img/herofinal.webp" alt="Profissional da Fator Verde em ambiente corporativo representando consultoria ambiental" class="hero-img" width="900" height="1100" fetchpriority="high" decoding="sync">
         <div class="float-cards" aria-hidden="true">
           <!-- Card 1: esquerda -->
           <div class="float-card float-card-1">
@@ -1946,8 +2091,7 @@ button:focus-visible,
       <!-- Specialist Card -->
       <div class="specialist-card" data-anim="fade-left">
         <div class="specialist-photo">
-          <img src="foto2.webp" alt="Eng. Robson Diego Santos" class="specialist-photo-img" loading="lazy" decoding="async">
-          <div class="specialist-photo-bg"></div>
+          <img src="assets/img/sobre.webp" alt="Eng. Robson Diego Santos, Diretor da Fator Verde Consultoria Ambiental em Taubaté-SP" class="specialist-photo-img" loading="lazy" decoding="async">
           <div class="specialist-photo-avatar">
             <div class="specialist-yrs">
               <div class="num">17+</div>
@@ -1964,7 +2108,6 @@ button:focus-visible,
             <li class="cred"><span class="cred-dot"></span>Auditor, Perito e Gestor Ambiental — Faculdade Oswaldo Cruz</li>
             <li class="cred"><span class="cred-dot"></span>Engenheiro de Segurança do Trabalho — PUC Minas</li>
             <li class="cred"><span class="cred-dot"></span>Perito ambiental em processos judiciais</li>
-            <li class="cred"><span class="cred-dot"></span>Atuação em regularização ambiental desde 2008</li>
           </ul>
         </div>
       </div>
@@ -2115,10 +2258,10 @@ button:focus-visible,
       <div class="footer-brand">
         <div class="footer-logo">
           <a href="#hero" class="logo" aria-label="Fator Verde — início">
-            <img src="logofatorverde.svg" alt="Fator Verde Consultoria" class="logo-img">
+            <img src="assets/img/logofatorverde.svg" alt="Fator Verde Consultoria" class="logo-img">
           </a>
         </div>
-        <p class="footer-tagline">Consultoria ambiental especializada para empresas que precisam de segurança técnica e resultado real.</p>
+        <p class="footer-tagline">Consultoria especializada para empresas que procuram por atividades ambientais e de engenharia civil.</p>
         <div class="footer-social">
           <!-- Instagram -->
           <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
