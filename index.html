@@ -31,7 +31,6 @@
 <meta name="geo.placename" content="Taubaté, São Paulo">
 <meta name="geo.position" content="-23.026;-45.556">
 <meta name="ICBM" content="-23.026, -45.556">
-<link rel="dns-prefetch" href="https://wa.me">
 <link rel="preload" as="image" href="assets/img/industria.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -768,10 +767,14 @@ nav { display: flex; align-items: center; gap: 2px; }
   content: '';
   position: absolute; inset: 0; z-index: 0;
   background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px),
     radial-gradient(circle at 75% 40%, rgba(169,221,0,0.10) 0%, transparent 55%),
     radial-gradient(circle at 18% 75%, rgba(139,196,0,0.07) 0%, transparent 50%),
-    repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px),
-    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.018) 60px, rgba(255,255,255,0.018) 61px);
+    linear-gradient(rgba(24,24,23,0.84), rgba(24,24,23,0.84)),
+    url('assets/img/fundo2fatorverde.webp');
+  background-size: auto, auto, auto, auto, auto, cover;
+  background-position: center;
   pointer-events: none;
 }
 #como-funciona .container { position: relative; z-index: 1; }
@@ -1260,6 +1263,81 @@ nav { display: flex; align-items: center; gap: 2px; }
 .footer-cnpj { font-size: 0.75rem; color: rgba(255,255,255,0.42); }
 
 /* ============================================================
+   COOKIE BANNER
+   ============================================================ */
+.cookie-banner {
+  position: fixed;
+  left: 24px;
+  right: 112px;
+  bottom: 24px;
+  z-index: 260;
+  max-width: 680px;
+  padding: 18px;
+  border-radius: 8px;
+  background: rgba(13,20,16,0.94);
+  color: rgba(255,255,255,0.86);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.28);
+  backdrop-filter: blur(16px);
+  transform: translateY(18px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s var(--ease-out), transform 0.28s var(--ease-out);
+}
+.cookie-banner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-title {
+  font-family: var(--fonte-titulo);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.cookie-text {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.68);
+  max-width: 58ch;
+}
+.cookie-text a {
+  color: var(--verde-profundo);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+.cookie-btn {
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition: transform 0.2s var(--ease-out), background 0.2s, color 0.2s, border-color 0.2s;
+}
+.cookie-btn:hover { transform: translateY(-1px); }
+.cookie-btn--accept {
+  background: var(--verde-profundo);
+  color: var(--grafite);
+}
+.cookie-btn--reject {
+  color: rgba(255,255,255,0.78);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.cookie-btn--reject:hover {
+  color: #fff;
+  border-color: rgba(255,255,255,0.34);
+  background: rgba(255,255,255,0.06);
+}
+
+/* ============================================================
    WHATSAPP BUTTON
    ============================================================ */
 .whatsapp-fab {
@@ -1383,6 +1461,14 @@ nav { display: flex; align-items: center; gap: 2px; }
   .grid-3 { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .cookie-banner {
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    max-width: none;
+  }
+  .cookie-actions { flex-direction: column; }
+  .cookie-btn { width: 100%; }
   .dores-cta { flex-direction: column; align-items: stretch; text-align: center; }
   .dores-cta .btn { width: 100%; justify-content: center; }
   .testimonial-block { flex-direction: column; gap: 12px; }
@@ -1490,13 +1576,15 @@ button:focus-visible,
       },
       "image": "https://www.fatorverde.com.br/assets/img/fatorverdehero.webp",
       "description": "Consultoria em licenciamento ambiental, ESG, PGRS, inventário de GEE, segurança do trabalho e engenharia civil. Atendimento técnico especializado em Taubaté-SP e região do Vale do Paraíba.",
-      "telephone": "+55-12-99999-9999",
+      "telephone": "+55-12-3631-6307",
       "email": "contato@fatorverde.com.br",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Avenida Vila Rica, 261 - Chácara do Visconde",
         "addressLocality": "Taubaté",
         "addressRegion": "SP",
+        "postalCode": "12050-480",
         "addressCountry": "BR"
       },
       "geo": {
@@ -1712,7 +1800,7 @@ button:focus-visible,
       <a href="#como-funciona" class="nav-link">Processo</a>
       <a href="#quem-somos" class="nav-link">Quem Somos</a>
       <a href="#faq" class="nav-link">FAQ</a>
-      <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="btn btn-primary nav-cta" target="_blank" rel="noopener noreferrer">
+      <a href="tel:+551236316307" class="btn btn-primary nav-cta">
         Falar com especialista
       </a>
     </nav>
@@ -1730,7 +1818,7 @@ button:focus-visible,
   <a href="#como-funciona" class="nav-link" data-mobile-link>Processo</a>
   <a href="#quem-somos" class="nav-link" data-mobile-link>Quem Somos</a>
   <a href="#faq" class="nav-link" data-mobile-link>FAQ</a>
-  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="margin-top:16px;">
+  <a href="tel:+551236316307" class="btn btn-primary" style="margin-top:16px;">
     Falar com especialista
   </a>
 </div>
@@ -1762,10 +1850,10 @@ button:focus-visible,
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
           </svg>
-          Atendimento em Taubaté-SP e região
+          Localizada em Taubaté-SP e com abrangência nacional
         </div>
         <div class="hero-actions hero-anim-4">
-          <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+um+diagn%C3%B3stico+ambiental." class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer">
+          <a href="tel:+551236316307" class="btn btn-gold btn-lg">
             Entrar em contato
             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
@@ -1794,52 +1882,7 @@ button:focus-visible,
         <div class="hero-visual-glow" aria-hidden="true"></div>
         <div class="hero-visual-grid" aria-hidden="true"></div>
         <img src="assets/img/herofinal.webp" alt="Profissional da Fator Verde em ambiente corporativo representando consultoria ambiental" class="hero-img" width="900" height="1100" fetchpriority="high" decoding="sync">
-        <div class="float-cards" aria-hidden="true">
-          <!-- Card 1: esquerda -->
-          <div class="float-card float-card-1">
-            <div class="fc-icon fc-icon--green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#A9DD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="fc-content">
-              <div class="fc-label">Status</div>
-              <div class="fc-value">Licença Operação</div>
-              <div class="fc-sub"><span class="fc-badge fc-badge--green">● Ativa</span></div>
-            </div>
-          </div>
-          <!-- Card 2: direita inferior -->
-          <div class="float-card float-card-2">
-            <div class="fc-icon fc-icon--gold">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#FBbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-            </div>
-            <div class="fc-content">
-              <div class="fc-label">ESG Score</div>
-              <div class="fc-value">Conformidade</div>
-              <div class="fc-sub"><span class="fc-badge fc-badge--amber">▲ 94 pontos</span></div>
-            </div>
-          </div>
-          <!-- Card 3: direita superior -->
-          <div class="float-card float-card-3">
-            <div class="fc-icon fc-icon--blue">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#93C5FD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <div class="fc-content">
-              <div class="fc-label">PGRS</div>
-              <div class="fc-value">Plano Atualizado</div>
-              <div class="fc-sub"><span class="fc-badge fc-badge--green">● Válido 2025</span></div>
-            </div>
-          </div>
-          <!-- Card 4: topo -->
-          <div class="float-card float-card-4">
-            <div class="fc-icon fc-icon--green">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#A9DD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-            </div>
-            <div class="fc-content">
-              <div class="fc-label">GEE</div>
-              <div class="fc-value">Inventário OK</div>
-              <div class="fc-sub"><span class="fc-badge fc-badge--green">● Auditado</span></div>
-            </div>
-          </div>
-        </div>
+      
       </div>
     </div>
   </div>
@@ -1898,7 +1941,7 @@ button:focus-visible,
         <div class="dores-cta-text">Se você identificou ao menos um desses pontos, é hora de agir.</div>
         <div class="dores-cta-sub">Diagnóstico inicial sem compromisso. Saiba exatamente o que precisa ser feito.</div>
       </div>
-      <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+um+diagn%C3%B3stico+ambiental." class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      <a href="tel:+551236316307" class="btn btn-primary">
         Quero um diagnóstico
         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -2117,7 +2160,7 @@ button:focus-visible,
 
 <!-- ============================================================
      CASES
-     ============================================================ -->
+     ============================================================ 
 <section id="cases" class="section section--dark">
   <div class="container">
     <div class="sec-header" data-anim="fade-up">
@@ -2156,7 +2199,7 @@ button:focus-visible,
     </div>
     <div class="cases-disclaimer">* Dados representativos. Cases reais serão inseridos com autorização dos clientes.</div>
   </div>
-</section>
+</section>-->
 
 <!-- ============================================================
      FAQ
@@ -2229,13 +2272,9 @@ button:focus-visible,
         </div>
         <h2 class="cta-title">Não deixe sua operação parar por falta de regularização.</h2>
         <p class="cta-desc">Fale com nossa equipe técnica e receba um diagnóstico inicial do seu caso. Clareza e segurança desde o primeiro contato.</p>
-        <div class="cta-location">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Atendimento em Taubaté e Região
-        </div>
       </div>
       <div class="cta-actions" data-anim="fade-left">
-        <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+conversar+sobre+regulariza%C3%A7%C3%A3o+ambiental." class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer">
+        <a href="tel:+551236316307" class="btn btn-gold btn-lg">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
@@ -2261,7 +2300,6 @@ button:focus-visible,
             <img src="assets/img/logofatorverde.svg" alt="Fator Verde Consultoria" class="logo-img">
           </a>
         </div>
-        <p class="footer-tagline">Consultoria especializada para empresas que procuram por atividades ambientais e de engenharia civil.</p>
         <div class="footer-social">
           <!-- Instagram -->
           <a href="#" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
@@ -2272,7 +2310,7 @@ button:focus-visible,
             <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
           <!-- WhatsApp -->
-          <a href="https://wa.me/5512999999999" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+          <a href="tel:+551236316307" class="social-link" aria-label="Telefone">
             <svg viewBox="0 0 24 24" fill="rgba(255,255,255,0.6)" stroke="none">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
@@ -2297,29 +2335,29 @@ button:focus-visible,
           <a href="#como-funciona" class="footer-link">Metodologia</a>
           <a href="#cases" class="footer-link">Cases</a>
           <a href="#faq" class="footer-link">FAQ</a>
-          <a href="#" class="footer-link">Política de Privacidade</a>
+          <a href="politica-de-privacidade.html" class="footer-link">Política de Privacidade</a>
         </div>
       </div>
       <div>
         <div class="footer-col-title">Contato</div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Taubaté, SP — Vale do Paraíba
+          Avenida Vila Rica, 261 - Chácara do Visconde - CEP 12050-480
         </div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          (12) 99999-9999
+          <a href="tel:+551236316307">(12) 3631-6307</a>
         </div>
         <div class="footer-contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          contato@fatorverde.com.br
+          <a href="mailto:contato@fatorverde.com.br">contato@fatorverde.com.br</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="footer-legal">
         © 2026 Fator Verde Consultoria. Todos os direitos reservados.
-        <a href="#">Política de Privacidade</a>
+        <a href="politica-de-privacidade.html">Política de Privacidade</a>
       </div>
       <div class="footer-cnpj">CNPJ 25.198.604/0001-15</div>
     </div>
@@ -2330,8 +2368,8 @@ button:focus-visible,
      WHATSAPP FAB
      ============================================================ -->
 <div class="whatsapp-fab">
-  <div class="whatsapp-bubble">Fale com um especialista agora</div>
-  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+a+Fator+Verde." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Conversar no WhatsApp">
+  <div class="whatsapp-bubble">Ligue para nossa equipe</div>
+  <a href="tel:+551236316307" class="whatsapp-btn" aria-label="Ligar para a Fator Verde">
     <svg viewBox="0 0 24 24" fill="#fff" stroke="none">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
@@ -2340,10 +2378,23 @@ button:focus-visible,
 
 <!-- Sticky CTA mobile -->
 <div class="sticky-cta" id="stickyCta">
-  <a href="https://wa.me/5512999999999?text=Ol%C3%A1%2C+quero+um+diagn%C3%B3stico+ambiental." class="btn btn-gold" target="_blank" rel="noopener noreferrer">
-    Falar com especialista agora
+  <a href="tel:+551236316307" class="btn btn-gold">
+    Ligar para especialista agora
     <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
   </a>
+</div>
+
+<!-- Cookie consent -->
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Aviso de cookies" hidden>
+  <div class="cookie-title">Preferências de cookies</div>
+  <p class="cookie-text">
+    Usamos cookies essenciais para manter o site funcionando e podemos usar dados de navegação para melhorar sua experiência.
+    Saiba mais na nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.
+  </p>
+  <div class="cookie-actions" aria-label="Escolha de cookies">
+    <button type="button" class="cookie-btn cookie-btn--accept" data-cookie-consent="accepted">Aceitar cookies</button>
+    <button type="button" class="cookie-btn cookie-btn--reject" data-cookie-consent="rejected">Rejeitar opcionais</button>
+  </div>
 </div>
 
 <!-- ============================================================
@@ -2439,6 +2490,47 @@ button:focus-visible,
       }
     });
   });
+
+  /* === COOKIE CONSENT === */
+  (function () {
+    const banner = document.getElementById('cookieBanner');
+    if (!banner) return;
+
+    const storageKey = 'fatorverdeCookieConsent';
+    let consent = null;
+
+    try {
+      consent = window.localStorage.getItem(storageKey);
+    } catch (error) {
+      consent = null;
+    }
+
+    if (consent) {
+      document.documentElement.dataset.cookieConsent = consent;
+      return;
+    }
+
+    banner.hidden = false;
+    requestAnimationFrame(() => banner.classList.add('is-visible'));
+
+    banner.querySelectorAll('[data-cookie-consent]').forEach(button => {
+      button.addEventListener('click', () => {
+        const value = button.getAttribute('data-cookie-consent');
+        document.documentElement.dataset.cookieConsent = value;
+
+        try {
+          window.localStorage.setItem(storageKey, value);
+        } catch (error) {
+          /* Consent still applies for this session if storage is blocked. */
+        }
+
+        banner.classList.remove('is-visible');
+        window.setTimeout(() => {
+          banner.hidden = true;
+        }, 280);
+      });
+    });
+  })();
 </script>
 </body>
 </html>
